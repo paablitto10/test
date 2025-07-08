@@ -1,26 +1,67 @@
-# Welcome to your Expo app 👋
+# ExpoLaunch
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Welcome to **ExpoLaunch** — a modern Expo-based starter template for building high-quality React Native apps with ease.
 
-## Get started
+## 🚀 Quick Start
 
-1. Install dependencies
+Make sure you have the following installed:
 
-   ```bash
-   npm install
-   ```
+- Node.js 20+
+- npm
+- Expo CLI
 
-2. Start the app
+Then run:
 
-   ```bash
-    npx expo start
-   ```
+```bash
+npm install
+npm start
+```
 
-In the output, you'll find options to open the app in a
+## 🧠 What’s Included
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+- 📱 Expo SDK 50 (Bare-compatible)
+- ⚛️ TypeScript
+- 🔒 Supabase Auth (Google, Apple, Email)
+- 💰 RevenueCat (In-App Subscriptions)
+- ⚡️ Zustand, Reanimated
+- 🧪 E2E-ready structure
+- 🌐 i18n-ready with English, Russian, Spanish
+- 🧭 expo-router navigation
+- 📈 Sentry + Google Analytics
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+## 🛠️ Configuration
+
+After installing dependencies, configure your `.env`:
+
+```
+EXPO_PUBLIC_SUPABASE_PROJECT_URL=
+EXPO_PUBLIC_SUPABASE_ANON_KEY=
+EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID=
+EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID=
+EXPO_PUBLIC_GOOGLE_IOS_URL_SCHEME=
+EXPO_PUBLIC_REVENUECAT_API_KEY_IOS=
+EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID=
+EXPO_PUBLIC_SENTRY_DSN=
+```
+
+Some features like **authentication**, **notes**, and **subscriptions** require additional setup. Please refer to the [full documentation](https://expolaunch.dev/docs) for step-by-step instructions.
+
+## 📝 Documentation
+
+Full documentation available at:  
+📖 https://expolaunch.dev/docs
+
+## 💡 Notes
+
+- This template is production-ready.
+- Optional features (Sentry, RevenueCat, Apple Login) are pre-integrated but require additional setup.
+- You can use the app right away with email login after configuring Supabase.
+
+## 🙌 Support
+
+Having issues or questions?  
+Reach out via [jonypopovv@gmail.com](mailto:jonypopovv@gmail.com)
+
+---
+
+Built with ❤️ by [Евгений Попов](https://moneyplusapp.com)
