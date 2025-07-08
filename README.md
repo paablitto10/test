@@ -19,7 +19,7 @@ npm start
 
 ## 🧠 What’s Included
 
-- 📱 Expo SDK 50 (Bare-compatible)
+- 📱 Expo SDK 52 (Bare-compatible)
 - ⚛️ TypeScript
 - 🔒 Supabase Auth (Google, Apple, Email)
 - 💰 RevenueCat (In-App Subscriptions)
