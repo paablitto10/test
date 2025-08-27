@@ -7,7 +7,7 @@ export default function PrivacyScreen() {
   return (
     <ScrollView className="bg-background" contentContainerClassName="px-6 py-3 gap-2">
       <Text>
-        ExpoLaunch is a developer template designed to help you kickstart your own mobile app
+        NativeLaunch is a developer template designed to help you kickstart your own mobile app
         projects. This template itself does not collect, store, or process any personal data.
       </Text>
 
@@ -21,9 +21,9 @@ export default function PrivacyScreen() {
 
       <Text className="mt-2 font-semiBold text-xl">Your Responsibility</Text>
       <Text>
-        If you use ExpoLaunch as the foundation for your own app, you are responsible for complying
-        with applicable data privacy regulations (such as GDPR, CCPA, etc.) based on how you use and
-        extend the template.
+        If you use NativeLaunch as the foundation for your own app, you are responsible for
+        complying with applicable data privacy regulations (such as GDPR, CCPA, etc.) based on how
+        you use and extend the template.
       </Text>
 
       <Text className="mt-2 font-semiBold text-xl">Contact Us</Text>

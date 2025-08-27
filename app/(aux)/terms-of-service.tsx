@@ -8,14 +8,14 @@ export default function TermsScreen() {
     <ScrollView className="bg-background" contentContainerClassName="px-6 py-3 gap-2">
       <Text className="mt-2 font-semiBold text-xl">1. Introduction</Text>
       <Text>
-        Welcome to ExpoLaunch. These Terms of Use ("Terms") govern your access to and use of the
-        ExpoLaunch codebase ("Template"), provided as a developer starter project. By using,
+        Welcome to NativeLaunch. These Terms of Use ("Terms") govern your access to and use of the
+        NativeLaunch codebase ("Template"), provided as a developer starter project. By using,
         downloading, or modifying this Template, you agree to be bound by these Terms.
       </Text>
 
       <Text className="mt-2 font-semiBold text-xl">2. License</Text>
       <Text>
-        ExpoLaunch is provided under a commercial license. You are permitted to use this Template
+        NativeLaunch is provided under a commercial license. You are permitted to use this Template
         for your own personal or commercial projects, but you may not redistribute, resell, or share
         the Template or its source code in any form.
       </Text>
@@ -28,8 +28,8 @@ export default function TermsScreen() {
 
       <Text className="mt-2 font-semiBold text-xl">4. Limitation of Liability</Text>
       <Text>
-        In no event shall the creators of ExpoLaunch be held liable for any damages arising from the
-        use or inability to use this Template.
+        In no event shall the creators of NativeLaunch be held liable for any damages arising from
+        the use or inability to use this Template.
       </Text>
 
       <Text className="mt-2 font-semiBold text-xl">5. Changes to Terms</Text>

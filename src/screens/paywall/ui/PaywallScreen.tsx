@@ -100,7 +100,7 @@ export default function PaywallScreen() {
         showsVerticalScrollIndicator={false}
       >
         <View className="flex-row gap-2 justify-center items-center">
-          <Text className="font-semiBold text-4xl text-primary text-center">ExpoLaunch</Text>
+          <Text className="font-semiBold text-4xl text-primary text-center">NativeLaunch</Text>
           <View className="border border-[2px] rounded-xl border-stone-500 px-2 py-1 mb-1">
             <Text className="text-2xl font-semibold">PRO</Text>
           </View>

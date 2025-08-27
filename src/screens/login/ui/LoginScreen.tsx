@@ -81,9 +81,9 @@ export default function LoginScreen() {
         <DevWarningBanner />
         <View className="gap-4 mt-4">
           <Animated.View className="flex-row flex-wrap gap-3" style={titleAnimatedStyle}>
-            <Text className="text-[30px] text-muted-foreground leading-[50px]">
+            <Text className="text-[28px] text-muted-foreground leading-[50px]">
               {t('welcomeTo')}{' '}
-              <Text className="text-[36px] font-semibold text-primary">ExpoLaunch</Text>
+              <Text className="text-[33px] font-semibold text-primary">NativeLaunch</Text>
             </Text>
           </Animated.View>
         </View>

@@ -8,14 +8,14 @@ const iosUrlScheme = process.env.EXPO_PUBLIC_GOOGLE_IOS_URL_SCHEME
 
 export default {
   expo: {
-    name: 'ExpoLaunch',
-    slug: 'expo-launch',
+    name: 'NativeLaunch',
+    slug: 'native-launch',
     description: 'Expo start kit',
     version: '1.0.0',
     owner: 'jonypopov',
     orientation: 'portrait',
     icon: './assets/images/icon.png',
-    scheme: 'expolaunch',
+    scheme: 'nativelaunch',
     userInterfaceStyle: 'automatic',
     newArchEnabled: false,
     platforms: ['ios', 'android'],
@@ -24,7 +24,7 @@ export default {
     },
     ios: {
       supportsTablet: true,
-      bundleIdentifier: 'expo.launch',
+      bundleIdentifier: 'native.launch',
       usesAppleSignIn: true,
       appleTeamId: 'YOUR_APPLE_TEAM_ID',
       config: {
@@ -39,7 +39,7 @@ export default {
         foregroundImage: './assets/images/adaptive-icon.png',
         backgroundColor: '#D29647',
       },
-      package: 'expo.launch',
+      package: 'native.launch',
       permissions: [
         'android.permission.RECORD_AUDIO',
         'android.permission.USE_BIOMETRIC',

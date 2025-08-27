@@ -1,6 +1,13 @@
-# ExpoLaunch
+# NativeLaunch
 
-Welcome to **ExpoLaunch** — a modern Expo-based starter template for building high-quality React Native apps with ease.
+Welcome to **NativeLaunch** — a modern Expo-based starter template for building high-quality React Native apps with ease.
+
+## Project Renaming
+
+This project was previously named **ExpoLaunch**.  
+At the request of the Expo team (to avoid using the word *Expo Launch* in the name), it was renamed to **NativeLaunch**.
+
+👉 [Read more about the renaming here](https://nativelaunch.dev/articles/expo-launch)
 
 ## 🚀 Quick Start
 
@@ -44,12 +51,12 @@ EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID=
 EXPO_PUBLIC_SENTRY_DSN=
 ```
 
-Some features like **authentication**, **notes**, and **subscriptions** require additional setup. Please refer to the [full documentation](https://expolaunch.dev/docs) for step-by-step instructions.
+Some features like **authentication**, **notes**, and **subscriptions** require additional setup. Please refer to the [full documentation](https://nativelaunch.dev/docs) for step-by-step instructions.
 
 ## 📝 Documentation
 
 Full documentation available at:  
-📖 https://expolaunch.dev/docs
+📖 https://nativelaunch.dev/docs
 
 ## 💡 Notes
 
