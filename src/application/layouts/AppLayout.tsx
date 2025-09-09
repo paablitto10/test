@@ -6,6 +6,7 @@ import {useLoadState} from '@features/load-state'
 import {shouldShowPaywall, useInitializePurchases} from '@entities/subscription'
 import {useUserStore} from '@entities/user'
 import {useTranslation} from '@shared/i18n'
+import {useScheduleNotificationSync} from '@shared/lib/notifications'
 import {useColorPalette} from '@shared/lib/palette'
 import {BackButton} from './ui/BackButton'
 
@@ -20,6 +21,7 @@ export default function AppLayout() {
   const pathname = usePathname()
   const showPaywall = shouldShowPaywall()
   useInitializePurchases()
+  useScheduleNotificationSync({isSignedIn: Boolean(user)})
 
   useEffect(() => {
     if (user && pathname !== '/profile') {

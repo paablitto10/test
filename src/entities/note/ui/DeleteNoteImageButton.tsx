@@ -24,12 +24,13 @@ export const DeleteNoteImageButton = ({
   const note = getNote(noteId)
 
   const onDelete = async () => {
-    beforeDelete && beforeDelete()
+    beforeDelete?.()
     try {
       setLoadingModal(true)
       await handleDelete()
       setLoadingModal(false)
       onComplete?.()
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       setLoadingModal(false)
     }

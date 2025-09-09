@@ -1,15 +1,20 @@
 import {FlashList} from '@shopify/flash-list'
 import {IconNotes} from '@tabler/icons-react-native'
-import {ReactElement, useMemo, useRef, useState} from 'react'
+import {useMemo, useRef, useState} from 'react'
 import {View} from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'
-import {NoteCard, Note, useNotes} from 'src/entities/note'
+import {NoteCard, useNotes} from 'src/entities/note'
 import {useTranslation} from '@shared/i18n'
-import {getDatesDiffInDays, TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
+import {getDatesDiffInDays} from '@shared/lib/dates'
 import {useRelativeTimeFormatter, useDateFormatter} from '@shared/lib/format'
 import {Text} from '@shared/ui/text'
-import {groupNotesByDate, TSectionHeader} from '../lib/groupToFlatList'
+import {groupNotesByDate} from '../lib/groupToFlatList'
 import {ListSkeleton} from './ListSkeleton'
+import type {TSectionHeader} from '../lib/groupToFlatList'
+import type {FlashListRef} from '@shopify/flash-list'
+import type {ReactElement} from 'react'
+import type {Note} from 'src/entities/note'
 
 export const NoteListGroup = ({
   from,
@@ -21,7 +26,7 @@ export const NoteListGroup = ({
   const {t} = useTranslation('NoteListGroup')
   const {bottom} = useSafeAreaInsets()
   const [height, setHeight] = useState(0)
-  const list = useRef<FlashList<Note | TSectionHeader> | null>(null)
+  const list = useRef<FlashListRef<Note | TSectionHeader> | null>(null)
 
   const formatRelativeTime = useRelativeTimeFormatter()
   const formatDate = useDateFormatter()
@@ -46,7 +51,6 @@ export const NoteListGroup = ({
       ref={list}
       className="flex-1"
       contentContainerStyle={{paddingBottom: bottom}}
-      estimatedItemSize={55}
       data={notesByDate}
       keyExtractor={(item) => ('date' in item ? item.date : item.id)}
       renderItem={({item: note}) => {

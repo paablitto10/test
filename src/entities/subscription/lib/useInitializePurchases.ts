@@ -5,7 +5,7 @@ import Purchases, {LOG_LEVEL} from 'react-native-purchases'
 
 export function useInitializePurchases() {
   useEffect(() => {
-    Purchases.setLogLevel(LOG_LEVEL.VERBOSE)
+    Purchases.setLogLevel(LOG_LEVEL.ERROR)
 
     if (Platform.OS === 'ios') {
       if (!process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS) {

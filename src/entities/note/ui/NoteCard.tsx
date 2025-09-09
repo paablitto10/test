@@ -2,13 +2,13 @@ import {Link} from 'expo-router'
 import React from 'react'
 import {View, Pressable} from 'react-native'
 import {useTranslation} from '@shared/i18n'
-import {TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
 import {useDateFormatter} from '@shared/lib/format'
 import {cn} from '@shared/lib/utils'
 import {Text} from '@shared/ui/text'
 import {NoteImageDisplay} from '../ui/NoteImageDisplay'
 
-export const NoteCard = React.memo((props: NoteCardProps) => {
+export const NoteCard = React.memo(function NoteCard(props: NoteCardProps) {
   const {t} = useTranslation('NoteCardProps')
   const {id, note, onBack} = props
   const {title, content, created_at, image_path} = note

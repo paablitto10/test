@@ -8,7 +8,7 @@ import {Button} from '@shared/ui/button'
 import {Text} from '@shared/ui/text'
 import {InputField, TextareaField} from '@shared/ui-primitives/FinalFormKit'
 import {pickImage} from '../libs/pickImage'
-import {CreateNoteFormData} from './CreateNoteForm.schema'
+import type {CreateNoteFormData} from './CreateNoteForm.schema'
 
 export const CreateNoteFormFieldset = ({
   noteId,

@@ -1,10 +1,11 @@
 import 'dotenv/config'
 import fs from 'fs'
 
-const isFirebaseConfigured =
-  fs.existsSync('./GoogleService-Info.plist') && fs.existsSync('./google-services.json')
+const isFirebaseConfiguredForAndroid = fs.existsSync('./google-services.json')
+const isFirebaseConfiguredForIos = fs.existsSync('./GoogleService-Info.plist')
 
 const iosUrlScheme = process.env.EXPO_PUBLIC_GOOGLE_IOS_URL_SCHEME
+const isProd = process.env.APP_ENV === 'production'
 
 export default {
   expo: {
@@ -17,40 +18,54 @@ export default {
     icon: './assets/images/icon.png',
     scheme: 'nativelaunch',
     userInterfaceStyle: 'automatic',
-    newArchEnabled: false,
+    newArchEnabled: true,
     platforms: ['ios', 'android'],
     androidNavigationBar: {
       backgroundColor: '#000000',
     },
     ios: {
+      deploymentTarget: '16.0',
       supportsTablet: true,
-      bundleIdentifier: 'native.launch',
+      bundleIdentifier: 'com.nativelaunch.app',
       usesAppleSignIn: true,
       appleTeamId: 'YOUR_APPLE_TEAM_ID',
       config: {
         usesNonExemptEncryption: false,
       },
-      ...(isFirebaseConfigured && {
+      ...(isFirebaseConfiguredForIos && {
         googleServicesFile: './GoogleService-Info.plist',
       }),
+      infoPlist: {
+        UIBackgroundModes: ['remote-notification'],
+      },
+      entitlements: {
+        'aps-environment': isProd ? 'production' : 'development', // ✅ Required for push notification, change to "production" for Testflight and App Store builds
+        'com.apple.security.application-groups': ['group.{YOUR_BUNDLE_ID}.onesignal'],
+      },
     },
     android: {
       adaptiveIcon: {
         foregroundImage: './assets/images/adaptive-icon.png',
         backgroundColor: '#D29647',
       },
-      package: 'native.launch',
+      package: 'com.nativelaunch.app',
       permissions: [
         'android.permission.RECORD_AUDIO',
         'android.permission.USE_BIOMETRIC',
         'android.permission.USE_FINGERPRINT',
         'com.android.vending.BILLING',
       ],
-      ...(isFirebaseConfigured && {
+      ...(isFirebaseConfiguredForAndroid && {
         googleServicesFile: './google-services.json',
       }),
     },
     plugins: [
+      [
+        'onesignal-expo-plugin',
+        {
+          mode: 'development',
+        },
+      ],
       'expo-router',
       [
         'expo-font',
@@ -104,12 +119,14 @@ export default {
         '@sentry/react-native/expo',
         {
           organization: 'money-plus',
-          project: 'money-plus-mobile',
+          project: 'YOUR_SENTRY_PROJECT_ID',
           url: 'https://sentry.io/',
         },
       ],
       'expo-asset',
-      ...(isFirebaseConfigured ? ['@react-native-firebase/app'] : []),
+      ...(isFirebaseConfiguredForIos && isFirebaseConfiguredForAndroid
+        ? ['@react-native-firebase/app']
+        : []),
     ],
     experiments: {
       typedRoutes: true,

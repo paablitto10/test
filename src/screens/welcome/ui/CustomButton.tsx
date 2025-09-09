@@ -1,6 +1,5 @@
 import {IconArrowRight} from '@tabler/icons-react-native'
 import {useRouter} from 'expo-router'
-import {RefObject} from 'react'
 import {TouchableWithoutFeedback} from 'react-native'
 import Animated, {useAnimatedStyle, withSpring, withTiming} from 'react-native-reanimated'
 import {useTranslation} from '@shared/i18n'
@@ -8,7 +7,8 @@ import {
   constantStorage,
   STORAGE_CONSTANT_IS_USER_ONBOARDED,
 } from '@shared/storage/contstant-storage'
-import {DataItem} from './WelcomeScreen'
+import type {DataItem} from './WelcomeScreen'
+import type {SharedValue, AnimatedRef} from 'react-native-reanimated'
 
 const CustomButton = ({flatListRef, flatListIndex, dataLength}: CustomButtonProps) => {
   const {t} = useTranslation('CustomButton')
@@ -79,7 +79,7 @@ export default CustomButton
 // TYPES
 
 type CustomButtonProps = {
-  flatListRef: RefObject<Animated.FlatList<DataItem>>
-  flatListIndex: Animated.SharedValue<number>
+  flatListRef: AnimatedRef<Animated.FlatList<DataItem>>
+  flatListIndex: SharedValue<number>
   dataLength: number
 }

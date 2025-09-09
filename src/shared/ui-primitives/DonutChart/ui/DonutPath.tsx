@@ -1,7 +1,9 @@
-import {Path, SkFont, Skia, Text} from '@shopify/react-native-skia'
+import {Path, Skia, Text} from '@shopify/react-native-skia'
 import React from 'react'
-import {SharedValue, useDerivedValue, withTiming} from 'react-native-reanimated'
+import {useDerivedValue, withTiming} from 'react-native-reanimated'
 import {useColorPalette} from '@shared/lib/palette'
+import type {SkFont} from '@shopify/react-native-skia'
+import type {SharedValue} from 'react-native-reanimated'
 
 const MIN_ANGLE_TO_SHOW_LABEL = 10
 

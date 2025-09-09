@@ -1,11 +1,13 @@
 import {getLocales, useLocales} from 'expo-localization'
-import {FC, ReactNode, createContext, useLayoutEffect, useEffect, useState, useContext} from 'react'
+import {createContext, useLayoutEffect, useEffect, useState, useContext} from 'react'
 import {
   constantStorage,
   STORAGE_CONSTANT_PREFERRED_LANGUAGE,
 } from '@shared/storage/contstant-storage'
 import i18n from './i18n'
-import {LanguageList, LanguageType} from './model/localize'
+import {LanguageList} from './model/localize'
+import type {LanguageType} from './model/localize'
+import type {FC, ReactNode} from 'react'
 
 const deviceLanguage = getLocales()[0]?.languageCode ?? LanguageList.EN
 const defaultLanguage = ['en', 'ru', 'es', 'de', 'pt', 'fr'].includes(deviceLanguage)

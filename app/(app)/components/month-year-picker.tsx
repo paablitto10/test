@@ -1,7 +1,8 @@
 import React, {useState} from 'react'
 import {ScrollView, View} from 'react-native'
 import {Trans, useTranslation} from '@shared/i18n'
-import {endOfMonth, startOfMonth, TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
+import {endOfMonth, startOfMonth} from '@shared/lib/dates'
 import {Text} from '@shared/ui/text'
 import {MonthYearPicker} from '@shared/ui-primitives/MonthYearPicker'
 

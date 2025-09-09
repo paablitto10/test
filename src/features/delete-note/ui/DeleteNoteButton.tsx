@@ -3,7 +3,8 @@ import {IconTrash} from '@tabler/icons-react-native'
 import {useRouter} from 'expo-router'
 import {useState} from 'react'
 import {TouchableOpacity} from 'react-native'
-import {NoteID, useNotesStore} from '@entities/note'
+import type {NoteID} from '@entities/note'
+import {useNotesStore} from '@entities/note'
 import {useTranslation} from '@shared/i18n'
 import {ConfirmationDialog} from '@shared/ui-primitives/ConfirmationDialog'
 
@@ -17,7 +18,7 @@ export const DeleteNoteButton = ({id, beforeDelete}: DeleteNoteButtonProps) => {
   const [confirmationIsOpen, setConfirmationIsOpen] = useState(false)
 
   const onDelete = async () => {
-    beforeDelete && beforeDelete()
+    beforeDelete?.()
     try {
       await deleteNote(id)
       router.back()

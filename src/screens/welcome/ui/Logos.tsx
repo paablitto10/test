@@ -1,11 +1,12 @@
 import React, {useEffect} from 'react'
-import {View, Image, ImageSourcePropType} from 'react-native'
+import {View, Image} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedStyle,
   withTiming,
   Easing,
 } from 'react-native-reanimated'
+import type {ImageSourcePropType} from 'react-native'
 
 const iconSize = 50
 

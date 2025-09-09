@@ -1,7 +1,6 @@
 import {View} from 'react-native'
-import {NotesFilters} from 'src/entities/note'
 import {useLocale} from '@shared/i18n'
-import {TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
 import {cn} from '@shared/lib/utils'
 import {
   Select,
@@ -14,6 +13,7 @@ import {
 import {Text} from '@shared/ui/text'
 import {getAllMonths} from '../lib/getAllMonths'
 import {getMonthIndex} from '../lib/getMonthIndex'
+import type {NotesFilters} from 'src/entities/note'
 
 const now = new Date()
 

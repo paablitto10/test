@@ -191,6 +191,10 @@
   "SelectFilter.byYear": "Nach Jahr",
   "SelectFilter.placeholder": "Alle Konten",
   "SettingCardLocalAuth.title": "Anmeldung mit FaceID",
+  "SettingCardNotifications.disabled": "Push-Benachrichtigungen sind deaktiviert",
+  "SettingCardNotifications.enabled": "Push-Benachrichtigungen sind aktiviert",
+  "SettingCardNotifications.notEnabled": "Push-Benachrichtigungen sind nicht aktiviert",
+  "SettingCardNotifications.title": "Push-Benachrichtigungen",
   "SettingScreen.card.aboutApp.title": "Über die App",
   "SettingScreen.card.appearance.title": "Erscheinungsbild",
   "SettingScreen.card.faq.title": "FAQ",
@@ -247,5 +251,7 @@
   "WelcomeScreen.slide2.text": "Analysieren Sie Ihre Ausgaben nach Kategorie pro Tag, Monat oder Jahr. Sie sehen klar, welche Ausgabenkategorie die höchsten Kosten verursacht.",
   "WelcomeScreen.slide2.title": "Verfolgen Sie Ihre Ausgaben",
   "WelcomeScreen.slide3.desc": "Erstellen Sie Ihr erstes Budget und versuchen Sie, das Limit nicht zu erreichen. Sie können ein Budget erstellen, indem Sie mehrere Ausgabenkategorien kombinieren.",
-  "WelcomeScreen.slide3.title": "Planen Sie Ihr Budget"
+  "WelcomeScreen.slide3.title": "Planen Sie Ihr Budget",
+  "useScheduleNotification.body": "Zeit, deine Notizen einzutragen!",
+  "useScheduleNotification.title": "Tägliche Erinnerung"
 }

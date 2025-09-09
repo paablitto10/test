@@ -30,6 +30,7 @@ npm start
 - ⚛️ TypeScript
 - 🔒 Supabase Auth (Google, Apple, Email)
 - 💰 RevenueCat (In-App Subscriptions)
+- 🔔 OneSignal (Push Notifications)
 - ⚡️ Zustand, Reanimated
 - 🧪 E2E-ready structure
 - 🌐 i18n-ready with English, Russian, Spanish
@@ -49,6 +50,7 @@ EXPO_PUBLIC_GOOGLE_IOS_URL_SCHEME=
 EXPO_PUBLIC_REVENUECAT_API_KEY_IOS=
 EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID=
 EXPO_PUBLIC_SENTRY_DSN=
+EXPO_PUBLIC_ONESIGNAL_APP_ID=
 ```
 
 Some features like **authentication**, **notes**, and **subscriptions** require additional setup. Please refer to the [full documentation](https://nativelaunch.dev/docs) for step-by-step instructions.

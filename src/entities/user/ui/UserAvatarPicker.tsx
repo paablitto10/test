@@ -1,4 +1,4 @@
-import {BottomSheetModal, BottomSheetView} from '@gorhom/bottom-sheet'
+import {BottomSheetView} from '@gorhom/bottom-sheet'
 import {IconChevronRight, IconTrash, IconCameraPlus, IconPencil} from '@tabler/icons-react-native'
 import {useCallback, useRef, useState} from 'react'
 import * as React from 'react'
@@ -13,6 +13,7 @@ import {BottomSheet} from '@shared/ui-primitives/Sheet'
 import {removeAvatar} from '../libs/removeAvatar'
 import {uploadAvatar} from '../libs/uploadAvatar'
 import {useUserStore} from '../model/user-store'
+import type {BottomSheetModal} from '@gorhom/bottom-sheet'
 
 export const UserAvatarPicker = ({
   imageUrl,
@@ -46,6 +47,7 @@ export const UserAvatarPicker = ({
       }
       await updateUser(user!.id, {avatar_url: imagePath})
       setLoading(false)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setLoading(false)
       Alert.alert(t('avatar.upload.error'))
@@ -59,6 +61,7 @@ export const UserAvatarPicker = ({
       await removeAvatar(user!.id)
       await updateUser(user!.id, {avatar_url: null})
       setLoading(false)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
       setLoading(false)
       Alert.alert(t('avatar.remove.error'))

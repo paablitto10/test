@@ -1,5 +1,5 @@
-import {SupportedStorage} from '@supabase/supabase-js'
 import {MMKV} from 'react-native-mmkv'
+import type {SupportedStorage} from '@supabase/supabase-js'
 
 const supabaseStorageMMKV = new MMKV({
   id: 'supabase-storage',

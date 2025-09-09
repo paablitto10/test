@@ -6,8 +6,9 @@ import {NoteListGroup} from 'src/widgets/note-list'
 import {TimeRangeControl} from '@widgets/time-range-control'
 import {UserAvatar} from '@entities/user'
 import {ScreenContent} from '@shared/ui-primitives/ScreenContent'
-import {TimeRange, NotesView} from '../model/types'
+import {NotesView} from '../model/types'
 import {SelectView} from './SelectView'
+import type {TimeRange} from '../model/types'
 
 const NotesScreen = () => {
   const router = useRouter()

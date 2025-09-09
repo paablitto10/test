@@ -9,6 +9,8 @@ interface UserSettingsStore {
   preferredTheme: 'light' | 'dark' | 'system'
   setPreferredTheme: (preferredTheme: 'light' | 'dark' | 'system') => void
   preferredPalette: Palette
+  enabledPushNotifications: boolean
+  setEnabledPushNotifications: (enabledPushNotifications: boolean) => void
 }
 
 export const useUserSettingsStore = create<UserSettingsStore>()(
@@ -19,6 +21,8 @@ export const useUserSettingsStore = create<UserSettingsStore>()(
       preferredTheme: 'dark',
       setPreferredTheme: (preferredTheme) => set({preferredTheme}),
       preferredPalette: Palette.Default,
+      enabledPushNotifications: false,
+      setEnabledPushNotifications: (enabledPushNotifications) => set({enabledPushNotifications}),
     }),
     {
       name: 'user-settings-storage',

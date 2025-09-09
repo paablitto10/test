@@ -1,7 +1,8 @@
 import {IconChevronLeft, IconChevronRight} from '@tabler/icons-react-native'
 import {View} from 'react-native'
 import {useLocale} from '@shared/i18n'
-import {daysUntilEndOfMonth, TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
+import {daysUntilEndOfMonth} from '@shared/lib/dates'
 import {cn} from '@shared/lib/utils'
 import {Button} from '@shared/ui/button'
 import {Text} from '@shared/ui/text'
@@ -15,7 +16,8 @@ import {
   subtractYears,
 } from '../libs/dateActions'
 import {formatDateRange} from '../libs/formatDateRange'
-import {TTimeRangeControl} from '../model/types'
+import {TimeRangeControlConst} from '../model/types'
+import type {TTimeRangeControl} from '../model/types'
 
 export function TimeRangeControl({
   filter,
@@ -26,7 +28,7 @@ export function TimeRangeControl({
 }: TimeRangeControlProps) {
   const {language} = useLocale()
   function handlePrevious() {
-    if (filter === TTimeRangeControl.ByMonth) {
+    if (filter === TimeRangeControlConst.ByMonth) {
       const to = new Date(timeRange.to)
       const endOfMonth = new Date(to.getFullYear(), to.getMonth(), 0)
       endOfMonth.setHours(23, 59, 59, 999)
@@ -35,7 +37,7 @@ export function TimeRangeControl({
         from: startOfDay(subtractMonths(timeRange.from, 1)).toISOString(),
         to: endOfMonth.toISOString(),
       })
-    } else if (filter === TTimeRangeControl.ByYear) {
+    } else if (filter === TimeRangeControlConst.ByYear) {
       onTimeRangeChange({
         from: startOfYear(subtractYears(timeRange.from, 1)).toISOString(),
         to: endOfYear(subtractYears(timeRange.to, 1)).toISOString(),
@@ -44,7 +46,7 @@ export function TimeRangeControl({
   }
 
   function handleNext() {
-    if (filter === TTimeRangeControl.ByMonth) {
+    if (filter === TimeRangeControlConst.ByMonth) {
       const to = new Date(timeRange.to)
       const endOfMonth = new Date(to.getFullYear(), to.getMonth() + 2, 0)
       endOfMonth.setHours(23, 59, 59, 999)
@@ -53,7 +55,7 @@ export function TimeRangeControl({
         from: startOfDay(addMonths(timeRange.from, 1)).toISOString(),
         to: endOfMonth.toISOString(),
       })
-    } else if (filter === TTimeRangeControl.ByYear) {
+    } else if (filter === TimeRangeControlConst.ByYear) {
       onTimeRangeChange({
         from: startOfYear(addYears(timeRange.from, 1)).toISOString(),
         to: endOfYear(addYears(timeRange.to, 1)).toISOString(),

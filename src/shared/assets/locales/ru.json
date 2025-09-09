@@ -191,6 +191,10 @@
   "SelectFilter.byYear": "По годам",
   "SelectFilter.placeholder": "Все счета",
   "SettingCardLocalAuth.title": "Вход с помощью FaceID",
+  "SettingCardNotifications.disabled": "Push-уведомления отключены",
+  "SettingCardNotifications.enabled": "Push-уведомления включены",
+  "SettingCardNotifications.notEnabled": "Push-уведомления не включены",
+  "SettingCardNotifications.title": "Push-уведомления",
   "SettingScreen.card.aboutApp.title": "О приложении",
   "SettingScreen.card.appearance.title": "Внешний вид",
   "SettingScreen.card.faq.title": "Часто задаваемые вопросы",
@@ -247,5 +251,7 @@
   "WelcomeScreen.slide2.text": "Легко анализируйте свои расходы по категориям за день, месяц или год. Вы ясно увидите, какая категория расходов вызывает наибольшие затраты.",
   "WelcomeScreen.slide2.title": "Отслеживайте свои расходы",
   "WelcomeScreen.slide3.desc": "Создайте свой первый бюджет и старайтесь не превышать лимит. Вы можете создать бюджет, комбинируя несколько категорий расходов.",
-  "WelcomeScreen.slide3.title": "Планируйте свой бюджет"
+  "WelcomeScreen.slide3.title": "Планируйте свой бюджет",
+  "useScheduleNotification.body": "Время записать свои заметки!",
+  "useScheduleNotification.title": "Ежедневное напоминание"
 }

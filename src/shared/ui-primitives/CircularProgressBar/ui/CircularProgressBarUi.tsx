@@ -1,8 +1,10 @@
-import {Canvas, Path, SkFont, Skia, Text} from '@shopify/react-native-skia'
+import {Canvas, Path, Skia, Text} from '@shopify/react-native-skia'
 import {View} from 'react-native'
-import {SharedValue, useDerivedValue} from 'react-native-reanimated'
+import {useDerivedValue} from 'react-native-reanimated'
 import {useColorPalette} from '@shared/lib/palette'
 import {useColorScheme} from '@shared/lib/theme'
+import type {SkFont} from '@shopify/react-native-skia'
+import type {SharedValue} from 'react-native-reanimated'
 
 export const CircularProgressBarUi = ({
   radius,

@@ -7,7 +7,7 @@ import {useSafeAreaInsets} from 'react-native-safe-area-context'
 // eslint-disable-next-line import/no-restricted-paths,no-restricted-imports
 import {formatDateRange} from '@widgets/time-range-control/libs/formatDateRange'
 import {useLocale} from '@shared/i18n'
-import {TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
 import {useColorPalette} from '@shared/lib/palette'
 import {Button} from '@shared/ui/button'
 import {Text} from '@shared/ui/text'

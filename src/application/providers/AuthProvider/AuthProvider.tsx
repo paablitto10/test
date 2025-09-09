@@ -1,11 +1,13 @@
-import {Session, User as UserSupabase} from '@supabase/supabase-js'
-import {useRouter, useSegments, useRootNavigationState} from 'expo-router'
-import {useContext, useState, useEffect, createContext, ReactNode} from 'react'
-import {AppState} from 'react-native'
+import {type Session, type User as UserSupabase} from '@supabase/supabase-js'
+import {useSegments, useRootNavigationState, Redirect} from 'expo-router'
+import * as SplashScreen from 'expo-splash-screen'
+import {useContext, useState, useEffect, createContext, useCallback} from 'react'
+import {AppState, View} from 'react-native'
 import {useResetStores} from '@features/reset-store'
 import {getUser, useUserStore} from '@entities/user'
 import {supabase} from '@shared/config/supabase'
 import {clearStorage} from '@shared/storage/clearStorage'
+import type {ReactNode} from 'react'
 
 // Tells Supabase Auth to continuously refresh the session automatically if
 // the app is in the foreground. When this is added, you will continue to receive
@@ -26,12 +28,12 @@ type AuthProviderProps = {
   children: ReactNode
 }
 
-type AuthProvider = {
+type TAuthProvider = {
   userBySession: UserSupabase | null
   loading: boolean
 }
 
-const AuthContext = createContext<AuthProvider>({
+const AuthContext = createContext<TAuthProvider>({
   userBySession: null,
   loading: true,
 })
@@ -80,7 +82,7 @@ export function AuthProvider({children}: AuthProviderProps) {
     })
 
     return () => {
-      authListener!.subscription.unsubscribe()
+      authListener?.subscription.unsubscribe()
     }
   }, [])
 
@@ -95,33 +97,51 @@ export function AuthProvider({children}: AuthProviderProps) {
     await handleResetStore()
   }
 
-  useProtectedRoute(userAuth)
+  const onLayoutRootView = useCallback(() => {
+    // Use a double requestAnimationFrame:
+    // 1. The first rAF waits for the current layout/paint cycle to finish.
+    // 2. The second rAF ensures the first real UI frame is actually rendered.
+    // This prevents a white flash between the splash screen and the app content.
+    requestAnimationFrame(() => {
+      requestAnimationFrame(async () => {
+        await SplashScreen.hideAsync()
+      })
+    })
+  }, [])
+
+  if (loading) {
+    return null
+  }
 
   return (
     <AuthContext.Provider value={{userBySession: userAuth, loading}}>
-      {children}
+      <AuthRedirect user={userAuth} loading={loading} />
+      <View style={{flex: 1}} onLayout={onLayoutRootView}>
+        {children}
+      </View>
     </AuthContext.Provider>
   )
 }
 
-function useProtectedRoute(user: UserSupabase | null) {
+function AuthRedirect({user, loading}: {user: UserSupabase | null; loading: boolean}) {
   const segments = useSegments()
-  const router = useRouter()
-  const navigationState = useRootNavigationState()
+  const ready = !!useRootNavigationState()?.key
 
-  useEffect(() => {
-    const inAuthGroup = segments[0] === '(auth)'
-    const inAuxiliaryGroup = segments[0] === '(aux)'
+  if (!ready || loading) {
+    return null
+  }
 
-    if (!navigationState?.key) {
-      // Temporary fix for router not being ready.
-      return
-    }
+  const group = segments[0] // '(auth)' | '(app)' | '(aux)'
+  const inAuth = group === '(auth)'
+  const inAux = group === '(aux)'
 
-    if (!user && !inAuthGroup && !inAuxiliaryGroup) {
-      router.replace('/login')
-    } else if (user && inAuthGroup && !inAuxiliaryGroup) {
-      router.replace('/(app)/(tabs)')
-    }
-  }, [user, segments])
+  if (!user && !(inAuth || inAux)) {
+    return <Redirect href="/(auth)/login" />
+  }
+
+  if (user && inAuth && !inAux) {
+    return <Redirect href="/(app)/(tabs)" />
+  }
+
+  return null
 }

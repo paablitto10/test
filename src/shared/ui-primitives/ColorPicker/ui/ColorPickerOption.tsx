@@ -1,7 +1,7 @@
 import {Pressable, View} from 'react-native'
 import {useColorScheme} from '@shared/lib/theme'
 import {colorsPrimary} from '../../../config/colors'
-import {TColor} from '../../../config/colors/types'
+import type {TColor} from '../../../config/colors/types'
 
 export function ColorPickerOption({onChange, value, color}: ColorPickerOptionProps) {
   const {colorScheme} = useColorScheme()

@@ -1,6 +1,6 @@
-export const TTimeRangeControl = {
+export const TimeRangeControlConst = {
   ByMonth: 'BY_MONTH',
   ByYear: 'BY_YEAR',
 } as const
 
-export type TTimeRangeControl = (typeof TTimeRangeControl)[keyof typeof TTimeRangeControl]
+export type TTimeRangeControl = (typeof TimeRangeControlConst)[keyof typeof TimeRangeControlConst]

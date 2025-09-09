@@ -1,8 +1,9 @@
-import type {ReactElement, ReactNode} from 'react'
 import {useFormState, useFormContext} from 'react-hook-form'
 import {ActivityIndicator, View} from 'react-native'
-import {Button, ButtonProps} from '@shared/ui/button'
+import type {ButtonProps} from '@shared/ui/button'
+import {Button} from '@shared/ui/button'
 import {Text} from '@shared/ui/text'
+import type {ReactElement, ReactNode} from 'react'
 
 export const FinalFormButtons: T = ({children, submitText, ...props}) => {
   const {isLoading, isSubmitting, disabled, isValid, isDirty} = useFormState()

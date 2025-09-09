@@ -22,6 +22,7 @@ import {Text} from '@shared/ui/text'
 import {ScreenContent} from '@shared/ui-primitives/ScreenContent'
 import {ProfileCard} from './ProfileCard'
 import {SettingCardLocalAuth} from './SettingCardLocalAuth'
+import {SettingCardNotifications} from './SettingCardNotifications'
 
 export default function SettingScreen() {
   const {t} = useTranslation('SettingScreen')
@@ -71,6 +72,7 @@ export default function SettingScreen() {
         </SettingCardGroup>
         <SettingCardGroup title={t('group.app')}>
           <SettingCardLocalAuth />
+          <SettingCardNotifications />
           <SettingCard
             className="border-b border-background dark:border-muted"
             onPress={() => router.push('/appearance')}

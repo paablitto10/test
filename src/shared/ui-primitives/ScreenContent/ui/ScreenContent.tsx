@@ -1,14 +1,16 @@
-import {NativeStackNavigationOptions} from '@react-navigation/native-stack'
 import {useNavigation} from 'expo-router'
-import {ReactNode, memo, useEffect, useRef} from 'react'
+import {memo, useEffect, useRef} from 'react'
 import {Animated, BackHandler, KeyboardAvoidingView} from 'react-native'
-import {Edge, SafeAreaView} from 'react-native-safe-area-context'
+import {SafeAreaView} from 'react-native-safe-area-context'
 import {isIos} from '@shared/lib/isIos'
 import {cn} from '@shared/lib/utils'
+import type {NativeStackNavigationOptions} from '@react-navigation/native-stack'
+import type {ReactNode} from 'react'
+import type {Edge} from 'react-native-safe-area-context'
 
 const IS_IOS = isIos()
 
-export const ScreenContent = memo((props: ScreenProps) => {
+export const ScreenContent = memo(function ScreenContent(props: ScreenProps) {
   const navigation = useNavigation()
   const {
     children,
@@ -48,7 +50,7 @@ export const ScreenContent = memo((props: ScreenProps) => {
     BackHandler.addEventListener('hardwareBackPress', () => disableBackHandler)
 
     return () => {
-      BackHandler.removeEventListener('hardwareBackPress', () => disableBackHandler)
+      // BackHandler.removeEventListener('hardwareBackPress', () => disableBackHandler)
     }
   }, [])
 

@@ -11,10 +11,15 @@ export function useHandleLogout() {
   const {handleResetStore} = useResetStores()
 
   const handleLogout = async () => {
-    await clearStorage()
     await logout()
-    await handleResetStore()
-    await clearNoteImagesCache()
+
+    // Delay cleanup to align with Supabase SDK (onAuthStateChange uses setTimeout).
+    // Prevents race where store resets before SIGNED_OUT is processed.
+    setTimeout(async () => {
+      await clearStorage()
+      await handleResetStore()
+      await clearNoteImagesCache()
+    })
   }
 
   return {

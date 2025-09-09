@@ -191,6 +191,10 @@
   "SelectFilter.byYear": "By year",
   "SelectFilter.placeholder": "All Accounts",
   "SettingCardLocalAuth.title": "Login using FaceID",
+  "SettingCardNotifications.disabled": "Push notifications are disabled",
+  "SettingCardNotifications.enabled": "Push notifications are enabled",
+  "SettingCardNotifications.notEnabled": "Push notifications are not enabled",
+  "SettingCardNotifications.title": "Push notifications",
   "SettingScreen.card.aboutApp.title": "About App",
   "SettingScreen.card.appearance.title": "Appearance",
   "SettingScreen.card.faq.title": "FAQ",
@@ -247,5 +251,7 @@
   "WelcomeScreen.slide2.text": "Tailor your app’s look with light and dark themes, prebuilt UI blocks, and full NativeWind styling. No need to start from scratch.",
   "WelcomeScreen.slide2.title": "Customizable UI",
   "WelcomeScreen.slide3.desc": "Includes everything you need to launch fast: auth, localization, paywall, error handling, deep linking, dark mode, and OTA updates — all set up and production-ready.",
-  "WelcomeScreen.slide3.title": "Ready for Production"
+  "WelcomeScreen.slide3.title": "Ready for Production",
+  "useScheduleNotification.body": "Time to enter your notes!",
+  "useScheduleNotification.title": "Daily reminder"
 }

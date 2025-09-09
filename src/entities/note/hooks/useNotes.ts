@@ -12,7 +12,6 @@ export const useNotes = ({startDate, endDate}: UseNotesOptions = {}) => {
   const {fetchNotes, notes} = useNotesStore((state) => ({
     fetchNotes: state.fetchNotes,
     notes: state.notes,
-    notesLoaded: state.notesLoaded,
   }))
 
   const loadMore = useCallback(async () => {

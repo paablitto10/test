@@ -1,12 +1,8 @@
 import React from 'react'
 import {View} from 'react-native'
-import Animated, {
-  useAnimatedStyle,
-  interpolate,
-  Extrapolation,
-  SharedValue,
-} from 'react-native-reanimated'
-import {DataItem} from './WelcomeScreen'
+import Animated, {useAnimatedStyle, interpolate, Extrapolation} from 'react-native-reanimated'
+import type {DataItem} from './WelcomeScreen'
+import type {SharedValue} from 'react-native-reanimated'
 
 const Pagination: React.FC<PaginationProps> = ({data, x, screenWidth}) => {
   return (

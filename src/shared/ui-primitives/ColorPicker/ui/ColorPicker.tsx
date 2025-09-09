@@ -1,5 +1,6 @@
 import {View} from 'react-native'
-import {colorsPrimary, TColor} from '@shared/config/colors'
+import type {TColor} from '@shared/config/colors'
+import {colorsPrimary} from '@shared/config/colors'
 import {Label} from '@shared/ui/label'
 import {ColorPickerOption} from './ColorPickerOption'
 

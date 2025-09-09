@@ -5,7 +5,7 @@ export const useChanged = <Value = unknown>(
   next: Value,
   compare: (previous: Value | undefined, next: Value) => boolean
 ): Value => {
-  const previousRef = useRef<Value | undefined>()
+  const previousRef = useRef<Value | undefined>(undefined)
   const previous = previousRef.current
 
   const isEqual = compare(previous, next)

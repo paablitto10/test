@@ -1,6 +1,7 @@
 import {create} from 'zustand'
 import {createJSONStorage, persist} from 'zustand/middleware'
-import {supabase, User} from '@shared/config/supabase'
+import type {User} from '@shared/config/supabase'
+import {supabase} from '@shared/config/supabase'
 import {zustandStorage} from '@shared/storage/zustand-storage'
 
 interface UserStoreState {

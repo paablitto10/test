@@ -1,6 +1,6 @@
-import {ReactNode} from 'react'
-import {FieldValues, FormProvider, UseFormReturn} from 'react-hook-form'
+import {type FieldValues, FormProvider, type UseFormReturn} from 'react-hook-form'
 import {FormDetailsProvider} from './context'
+import type {ReactNode} from 'react'
 
 interface FormProps<TFieldValues extends FieldValues, TContext>
   extends UseFormReturn<TFieldValues, TContext, FieldValues> {

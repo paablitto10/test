@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import {ScrollView, View} from 'react-native'
-import {TColor} from '@shared/config/colors'
+import type {TColor} from '@shared/config/colors'
 import {Trans, useTranslation} from '@shared/i18n'
 import {Text} from '@shared/ui/text'
 import {ColorPicker} from '@shared/ui-primitives/ColorPicker'

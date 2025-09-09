@@ -1,7 +1,7 @@
 import {useScrollToTop} from '@react-navigation/native'
 import {FlashList} from '@shopify/flash-list'
 import {IconChevronRight} from '@tabler/icons-react-native'
-import {Link, Route} from 'expo-router'
+import {Link} from 'expo-router'
 import {useRef, useState} from 'react'
 import {View} from 'react-native'
 import {cn} from '@shared/lib/utils'
@@ -9,6 +9,7 @@ import {Button} from '@shared/ui/button'
 import {Input} from '@shared/ui/input'
 import {Text} from '@shared/ui/text'
 import {ScreenContent} from '@shared/ui-primitives/ScreenContent'
+import type {Route} from 'expo-router'
 
 export default function ComponentsScreen() {
   const [search, setSearch] = useState('')
@@ -34,7 +35,6 @@ export default function ComponentsScreen() {
           ref={ref}
           data={data}
           className="native:overflow-hidden rounded-t-lg"
-          estimatedItemSize={49}
           showsVerticalScrollIndicator={false}
           renderItem={({item, index}) => (
             <Link href={`/components/${item}` as unknown as Route} asChild>

@@ -2,7 +2,8 @@ import {useState} from 'react'
 import {ScrollView, View} from 'react-native'
 import {TimeRangeControl} from '@widgets/time-range-control'
 import {Trans, useTranslation} from '@shared/i18n'
-import {endOfMonth, startOfMonth, TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
+import {endOfMonth, startOfMonth} from '@shared/lib/dates'
 import {Text} from '@shared/ui/text'
 
 export default function TimeRangeControlScreen() {

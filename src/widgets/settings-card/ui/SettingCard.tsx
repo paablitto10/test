@@ -1,8 +1,8 @@
-import {Icon} from '@tabler/icons-react-native'
-import {ReactNode} from 'react'
 import {Pressable, View} from 'react-native'
 import {cn} from '@shared/lib/utils'
 import {Text} from '@shared/ui/text'
+import type {IconProps} from '@tabler/icons-react-native'
+import type {ComponentType, ReactNode} from 'react'
 
 export const SettingCard = ({
   title,
@@ -50,7 +50,7 @@ export const SettingCard = ({
 
 interface SettingCardProps {
   title: string
-  icon?: Icon
+  icon?: ComponentType<IconProps>
   rightSection?: ReactNode
   description?: string
   onPress?(): void

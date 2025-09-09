@@ -7,7 +7,6 @@ import Animated, {
   withDelay,
   withTiming,
 } from 'react-native-reanimated'
-// eslint-disable-next-line import/no-named-as-default
 import Svg, {Path} from 'react-native-svg'
 import {Text} from '@shared/ui/text'
 

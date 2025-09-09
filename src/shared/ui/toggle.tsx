@@ -1,9 +1,9 @@
 import * as TogglePrimitive from '@rn-primitives/toggle'
-import type {Icon} from '@tabler/icons-react-native'
 import {cva, type VariantProps} from 'class-variance-authority'
 import * as React from 'react'
 import {cn} from '@shared/lib/utils'
 import {TextClassContext} from '@shared/ui/text'
+import type {Icon} from '@tabler/icons-react-native'
 
 const toggleVariants = cva(
   'web:group web:inline-flex items-center justify-center rounded-md web:ring-offset-background web:transition-colors web:hover:bg-muted active:bg-muted web:focus-visible:outline-none web:focus-visible:ring-2 web:focus-visible:ring-ring web:focus-visible:ring-offset-2',

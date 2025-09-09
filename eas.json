@@ -23,10 +23,11 @@
       "autoIncrement": true,
       "android": {
         "image": "latest",
-        "credentialsSource": "remote"
+        "credentialsSource": "local"
       },
       "ios": {
-        "image": "macos-sequoia-15.3-xcode-16.2"
+        "image": "macos-sequoia-15.3-xcode-16.2",
+        "credentialsSource": "local"
       },
       "channel": "production"
     }

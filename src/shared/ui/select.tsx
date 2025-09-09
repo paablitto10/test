@@ -148,7 +148,6 @@ const SelectItem = React.forwardRef<
   React.ComponentPropsWithoutRef<typeof SelectPrimitive.Item> & {
     extra?: React.ReactNode
   }
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 >(({className, children, extra, ...props}, ref) => (
   <SelectPrimitive.Item
     ref={ref}

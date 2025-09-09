@@ -10,10 +10,6 @@ npm-debug.*
 *.orig.*
 web-build/
 
-# Ignore native folders if using Expo managed workflow
-ios/
-android/
-
 # macOS
 .DS_Store
 

@@ -1,4 +1,4 @@
-import {TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
 
 export enum NotesView {
   All = 'ALL',

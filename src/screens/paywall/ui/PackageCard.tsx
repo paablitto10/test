@@ -1,9 +1,9 @@
 import {Pressable, View} from 'react-native'
-import type {PurchasesPackage} from 'react-native-purchases'
 import {useTranslation} from '@shared/i18n'
 import {cn} from '@shared/lib/utils'
 import {Checkbox} from '@shared/ui/checkbox'
 import {Text} from '@shared/ui/text'
+import type {PurchasesPackage} from 'react-native-purchases'
 
 export function PackageCard({
   data,

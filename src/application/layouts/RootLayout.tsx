@@ -3,13 +3,12 @@ import '../global.css'
 import NetInfo from '@react-native-community/netinfo'
 import {ThemeProvider, DarkTheme, DefaultTheme} from '@react-navigation/native'
 import {PortalHost} from '@rn-primitives/portal'
-import * as Sentry from '@sentry/react-native'
 import {createAsyncStoragePersister} from '@tanstack/query-async-storage-persister'
 import {focusManager, onlineManager} from '@tanstack/react-query'
 import {PersistQueryClientProvider} from '@tanstack/react-query-persist-client'
-import {isRunningInExpoGo} from 'expo'
 import * as NavigationBar from 'expo-navigation-bar'
-import {useNavigationContainerRef, Stack} from 'expo-router'
+import * as Notifications from 'expo-notifications'
+import {Stack} from 'expo-router'
 import * as SplashScreen from 'expo-splash-screen'
 import {StatusBar} from 'expo-status-bar'
 import {cssInterop} from 'nativewind'
@@ -18,7 +17,9 @@ import {AppState, type AppStateStatus, Platform} from 'react-native'
 import {KeyboardProvider} from 'react-native-keyboard-controller'
 import {SafeAreaProvider} from 'react-native-safe-area-context'
 import {Svg} from 'react-native-svg'
+import {initSentry} from '@shared/config/sentry'
 import {LanguageProvider} from '@shared/i18n'
+import {useNotificationObserver, useOneSignal} from '@shared/lib/notifications'
 import {useColorPalette} from '@shared/lib/palette'
 import {useColorScheme} from '@shared/lib/theme'
 import {SheetProvider} from '@shared/sheet-provider'
@@ -26,7 +27,6 @@ import {queryStorage} from '@shared/storage/query-storage'
 import {useUserSettingsStore} from '@shared/stores/user-settings'
 import {ToastRoot} from '@shared/toast/ToastRoot'
 import {queryClient} from '../libs/queryClient'
-import {AppLoaderProvider} from '../providers/AppLoaderProvider'
 import {AuthProvider} from '../providers/AuthProvider'
 import {CustomPaletteWrapper} from '../providers/CustomPaletteWrapper'
 import 'react-native-reanimated'
@@ -42,21 +42,7 @@ import '@formatjs/intl-numberformat/locale-data/en'
 import '@formatjs/intl-relativetimeformat/polyfill-force'
 import '@formatjs/intl-relativetimeformat/locale-data/en'
 
-// Construct a new instrumentation instance. This is needed to communicate between the integration and React
-const navigationIntegration = Sentry.reactNavigationIntegration({
-  enableTimeToInitialDisplay: !isRunningInExpoGo(),
-})
-
-Sentry.init({
-  dsn: __DEV__ ? undefined : process.env.EXPO_PUBLIC_SENTRY_DSN,
-  //debug: true, // If `true`, Sentry will try to print out useful debugging information if something goes wrong with sending the event. Set it to `false` in production
-  tracesSampleRate: 1.0, // Set tracesSampleRate to 1.0 to capture 100% of transactions for tracing. Adjusting this value in production.
-  integrations: [
-    // Pass integration
-    navigationIntegration,
-  ],
-  enableNativeFramesTracking: !isRunningInExpoGo(), // Tracks slow and frozen frames in the application
-})
+const SentryInstance = initSentry()
 
 // Online status management
 onlineManager.setEventListener((setOnline) => {
@@ -91,12 +77,21 @@ SplashScreen.setOptions({
   fade: true,
 })
 
+Notifications.setNotificationHandler({
+  handleNotification: async () => ({
+    shouldPlaySound: false,
+    shouldSetBadge: false,
+    shouldShowBanner: true,
+    shouldShowList: true,
+  }),
+})
+
 if (__DEV__) {
+  // eslint-disable-next-line @typescript-eslint/no-require-imports
   require('../../../ReactotronConfig')
 }
 
 function RootLayout() {
-  const ref = useNavigationContainerRef()
   const {colorScheme, setColorScheme} = useColorScheme()
   const {getColor} = useColorPalette()
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false)
@@ -133,11 +128,7 @@ function RootLayout() {
     return () => subscription.remove()
   }, [])
 
-  useEffect(() => {
-    if (ref?.current && !__DEV__) {
-      navigationIntegration.registerNavigationContainer(ref)
-    }
-  }, [ref])
+  useOneSignal()
 
   if (!isColorSchemeLoaded) {
     return null
@@ -145,20 +136,19 @@ function RootLayout() {
 
   return (
     <AuthProvider>
-      <AppLoaderProvider>
-        <RootLayoutNav />
-      </AppLoaderProvider>
+      <RootLayoutNav />
     </AuthProvider>
   )
 }
 
-export default Sentry.wrap(RootLayout)
+export default SentryInstance ? SentryInstance.wrap(RootLayout) : RootLayout
 
 // PARTS
 
 function RootLayoutNav() {
   const {colorScheme} = useColorScheme()
   const {getColor} = useColorPalette()
+  useNotificationObserver()
 
   return (
     <PersistQueryClientProvider

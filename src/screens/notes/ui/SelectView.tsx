@@ -9,7 +9,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from '@shared/ui/select'
-import {TimeRange, NotesView} from '../model/types'
+import {NotesView} from '../model/types'
+import type {TimeRange} from '../model/types'
 
 export function SelectView({value = NotesView.All, onSelect, onTimeRangeChange}: SelectViewProps) {
   const {t} = useTranslation('SelectFilter')

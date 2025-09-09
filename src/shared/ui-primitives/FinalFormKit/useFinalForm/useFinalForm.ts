@@ -4,13 +4,13 @@ import {dequal} from 'dequal'
 import {useEffect} from 'react'
 import {
   useForm,
-  UseFormProps,
-  UseFormReturn,
-  SubmitHandler,
-  SubmitErrorHandler,
-  DefaultValues,
+  type UseFormProps,
+  type UseFormReturn,
+  type SubmitHandler,
+  type SubmitErrorHandler,
+  type DefaultValues,
 } from 'react-hook-form'
-import {TypeOf, z} from 'zod'
+import {type TypeOf, type z} from 'zod'
 import {useChanged} from '@shared/lib/state'
 
 interface UseFinalFormProps<

@@ -1,11 +1,13 @@
-import {Canvas, Path, Skia, Text, SkFont} from '@shopify/react-native-skia'
+import {Canvas, Path, Skia, Text} from '@shopify/react-native-skia'
 import {useEffect} from 'react'
-import {GestureResponderEvent, View} from 'react-native'
+import {View} from 'react-native'
 import {useDerivedValue, useSharedValue, withTiming} from 'react-native-reanimated'
 import {useLocale} from '@shared/i18n'
 import {useColorPalette} from '@shared/lib/palette'
 import {useColorScheme} from '@shared/lib/theme'
 import DonutPath from './DonutPath'
+import type {SkFont} from '@shopify/react-native-skia'
+import type {GestureResponderEvent} from 'react-native'
 
 const RADIUS = 160
 const STROKE_WIDTH = 50

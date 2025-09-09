@@ -1,11 +1,8 @@
 import {useLocalSearchParams, useRouter} from 'expo-router'
 import {useCallback, useEffect, useState} from 'react'
 import {ScrollView, View} from 'react-native'
-import {
-  CreateNoteFormFieldset,
-  createNoteFormSchema,
-  CreateNoteFormData,
-} from '@features/create-note'
+import type {CreateNoteFormData} from '@features/create-note'
+import {CreateNoteFormFieldset, createNoteFormSchema} from '@features/create-note'
 import {DeleteNoteButton} from '@features/delete-note'
 import {useNotesStore} from '@entities/note'
 import {useTranslation} from '@shared/i18n'

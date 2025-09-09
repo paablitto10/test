@@ -1,10 +1,10 @@
 import * as ToggleGroupPrimitive from '@rn-primitives/toggle-group'
-import type {Icon} from '@tabler/icons-react-native'
-import {VariantProps} from 'class-variance-authority'
 import * as React from 'react'
 import {cn} from '@shared/lib/utils'
 import {TextClassContext} from '@shared/ui/text'
 import {toggleTextVariants, toggleVariants} from '@shared/ui/toggle'
+import type {Icon} from '@tabler/icons-react-native'
+import type {VariantProps} from 'class-variance-authority'
 
 const ToggleGroupContext = React.createContext<VariantProps<typeof toggleVariants> | null>(null)
 

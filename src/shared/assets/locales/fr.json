@@ -191,6 +191,10 @@
   "SelectFilter.byYear": "Par année",
   "SelectFilter.placeholder": "Tous les comptes",
   "SettingCardLocalAuth.title": "Connexion avec FaceID",
+  "SettingCardNotifications.disabled": "Les notifications push sont désactivées",
+  "SettingCardNotifications.enabled": "Les notifications push sont activées",
+  "SettingCardNotifications.notEnabled": "Les notifications push ne sont pas activées",
+  "SettingCardNotifications.title": "Notifications push",
   "SettingScreen.card.aboutApp.title": "À propos de l'Application",
   "SettingScreen.card.appearance.title": "Apparence",
   "SettingScreen.card.faq.title": "FAQ",
@@ -247,5 +251,7 @@
   "WelcomeScreen.slide2.text": "Analysez facilement vos dépenses par catégorie par jour, mois ou année. Vous verrez clairement quelle catégorie de dépenses représente vos coûts les plus élevés.",
   "WelcomeScreen.slide2.title": "Suivez vos dépenses",
   "WelcomeScreen.slide3.desc": "Créez votre premier budget et essayez de ne pas atteindre sa limite. Vous pouvez créer un budget en combinant plusieurs catégories de dépenses.",
-  "WelcomeScreen.slide3.title": "Planifiez votre budget"
+  "WelcomeScreen.slide3.title": "Planifiez votre budget",
+  "useScheduleNotification.body": "Il est temps de saisir vos notes !",
+  "useScheduleNotification.title": "Rappel quotidien"
 }

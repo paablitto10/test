@@ -1,5 +1,4 @@
 import {cssInterop} from 'nativewind'
-// eslint-disable-next-line import/no-named-as-default
 import Svg, {type SvgProps, Path} from 'react-native-svg'
 
 export const CurrenciesEmptyIllustration = (props: SvgProps) => (

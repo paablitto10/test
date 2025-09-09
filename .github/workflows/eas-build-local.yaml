@@ -1,25 +1,20 @@
-name: 'EAS Build and submit app (TestFlight/Google Play)'
+name: 'EAS Build (Local on GitHub) & Submit'
 
 on:
   workflow_dispatch:
     inputs:
       auto_submit:
         description: 'Auto submit the build'
-        required: false
         default: false
         type: boolean
       platform:
         type: choice
         description: 'Platform to build for'
-        options:
-          - ios
-          - android
+        options: [ios, android]
       profile:
         type: choice
         description: 'Build profile to use'
-        options:
-          - production
-          - preview
+        options: [production, preview]
       use_self_hosted:
         type: boolean
         description: 'Use self-hosted runner'
@@ -31,13 +26,15 @@ jobs:
   eas-build:
     name: 'EAS build for ${{ github.event.inputs.platform }} (${{ github.event.inputs.profile }})'
     runs-on: ${{ github.event.inputs.use_self_hosted == 'true' && 'self-hosted' || (github.event.inputs.platform == 'ios' && 'macos-latest' || 'ubuntu-latest') }}
+    environment:
+      name: ${{ github.event.inputs.profile }}
     steps:
       - name: '🏗 Setup repo'
         uses: actions/checkout@v4
 
-      - name: 'Select Xcode 16.2'
+      - name: 'Select Xcode 16.4'
         if: ${{ github.event.inputs.platform == 'ios' && github.event.inputs.use_self_hosted != 'true' }}
-        run: sudo xcode-select -s /Applications/Xcode_16.2.app
+        run: sudo xcode-select -s /Applications/Xcode_16.4.app
 
       - name: '🏗 Setup Node'
         uses: ./.github/actions/setup-node-environment
@@ -57,16 +54,24 @@ jobs:
       - name: '📱 Prebuild native code'
         run: npm run prebuild
 
+      - name: '🔑 Restore Expo credentials'
+        run: |
+          echo "$EXPO_CREDENTIALS_B64" | base64 -D > ios-creds.tar.gz
+          tar xzvf ios-creds.tar.gz
+        env:
+          EXPO_CREDENTIALS_B64: ${{ secrets.EXPO_CREDENTIALS_B64 }}
+
       - name: '👷 Build app'
         env:
+          APP_ENV: 'production'
           EXPO_PUBLIC_SUPABASE_PROJECT_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_PROJECT_URL }}
           EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
           EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID: ${{ secrets.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID }}
           EXPO_PUBLIC_GOOGLE_WEB_CLIENT_SECRET: ${{ secrets.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_SECRET }}
           EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID: ${{ secrets.EXPO_PUBLIC_GOOGLE_IOS_CLIENT_ID }}
-          EXPO_PUBLIC_GOOGLE_IOS_URL_SCHEME: ${{ secrets.EXPO_PUBLIC_GOOGLE_IOS_URL_SCHEME }}
           EXPO_PUBLIC_REVENUECAT_PROJECT_IOS_API_KEY: ${{ secrets.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS }}
           EXPO_PUBLIC_SENTRY_DSN: ${{ secrets.EXPO_PUBLIC_SENTRY_DSN }}
+          EXPO_PUBLIC_ONESIGNAL_APP_ID: ${{ secrets.EXPO_PUBLIC_ONESIGNAL_APP_ID }}
           SENTRY_AUTH_TOKEN: ${{ secrets.SENTRY_AUTH_TOKEN }}
         run: |
           OUTPUT_FILE="./app.${{ github.event.inputs.platform == 'ios' && 'ipa' || 'aab' }}"

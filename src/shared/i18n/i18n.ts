@@ -1,6 +1,5 @@
 import {getLocales} from 'expo-localization'
-// eslint-disable-next-line import/no-named-as-default
-import i18n, {LanguageDetectorAsyncModule} from 'i18next'
+import i18n, {type LanguageDetectorAsyncModule} from 'i18next'
 import {initReactI18next} from 'react-i18next'
 import de from '../assets/locales/de.json'
 import en from '../assets/locales/en.json'
@@ -31,7 +30,7 @@ i18n
   .use(languageDetector)
   .use(initReactI18next)
   .init({
-    compatibilityJSON: 'v3',
+    compatibilityJSON: 'v4',
     fallbackLng: LanguageList.EN,
     defaultNS: 'translations',
     resources: {

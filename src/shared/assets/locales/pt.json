@@ -191,6 +191,10 @@
   "SelectFilter.byYear": "Por ano",
   "SelectFilter.placeholder": "Todas as Contas",
   "SettingCardLocalAuth.title": "Login usando FaceID",
+  "SettingCardNotifications.disabled": "As notificações push estão desativadas",
+  "SettingCardNotifications.enabled": "As notificações push estão ativadas",
+  "SettingCardNotifications.notEnabled": "As notificações push não estão ativadas",
+  "SettingCardNotifications.title": "Notificações push",
   "SettingScreen.card.aboutApp.title": "Sobre o Aplicativo",
   "SettingScreen.card.appearance.title": "Aparência",
   "SettingScreen.card.faq.title": "Perguntas Frequentes",
@@ -247,5 +251,7 @@
   "WelcomeScreen.slide2.text": "Analise facilmente suas despesas por categoria por dia, mês ou ano. Você verá claramente qual categoria de despesas tem os maiores custos.",
   "WelcomeScreen.slide2.title": "Acompanhe suas despesas",
   "WelcomeScreen.slide3.desc": "Crie seu primeiro orçamento e tente não atingir o limite. Você pode criar um orçamento combinando várias categorias de despesas.",
-  "WelcomeScreen.slide3.title": "Planeje seu orçamento"
+  "WelcomeScreen.slide3.title": "Planeje seu orçamento",
+  "useScheduleNotification.body": "Hora de registrar suas anotações!",
+  "useScheduleNotification.title": "Lembrete diário"
 }

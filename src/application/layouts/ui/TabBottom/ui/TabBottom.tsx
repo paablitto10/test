@@ -1,6 +1,4 @@
-import type {BottomTabBarProps} from '@react-navigation/bottom-tabs'
 import {
-  Icon,
   IconAdjustments,
   IconBrandDatabricks,
   IconCropLandscape,
@@ -12,6 +10,9 @@ import Animated from 'react-native-reanimated'
 import {useTranslation} from '@shared/i18n'
 import {cn} from '@shared/lib/utils'
 import {Text} from '@shared/ui/text'
+import type {BottomTabBarProps} from '@react-navigation/bottom-tabs'
+import type {IconProps} from '@tabler/icons-react-native'
+import type {ComponentType} from 'react'
 
 export function TabBottom({state, descriptors, navigation}: BottomTabBarProps) {
   return (
@@ -103,10 +104,12 @@ function TabBarItem({
 
 type TabBarItemProps = {
   focused: boolean
-  icon: Icon
+  icon: TablerIcon
   name: string
   descriptor: BottomTabBarProps['descriptors'][string]
 }
+
+type TablerIcon = ComponentType<IconProps>
 
 // TRANSLATIONS
 

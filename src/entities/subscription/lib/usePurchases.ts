@@ -1,6 +1,7 @@
 import {useQuery} from '@tanstack/react-query'
-import Purchases, {CustomerInfo} from 'react-native-purchases'
+import Purchases from 'react-native-purchases'
 import {useUserStore} from '../../user/model/user-store'
+import type {CustomerInfo} from 'react-native-purchases'
 
 export function usePurchasesPackages() {
   return useQuery({

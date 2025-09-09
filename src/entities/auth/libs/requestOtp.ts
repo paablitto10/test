@@ -1,5 +1,5 @@
-import {AuthError} from '@supabase/auth-js'
 import {supabase} from '@shared/config/supabase'
+import type {AuthError} from '@supabase/auth-js'
 
 export async function requestOtp(
   email: string

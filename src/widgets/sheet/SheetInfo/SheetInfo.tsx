@@ -6,7 +6,7 @@ import {useSheet, AppSheet} from '@shared/sheet-provider/context'
 import {Text} from '@shared/ui/text'
 import {SheetModal} from '@shared/ui-primitives/Sheet'
 
-export const SheetInfo = React.memo(() => {
+export const SheetInfo = React.memo(function SheetInfo() {
   const {[AppSheet.INFO]: progressRef} = useSheet()
   const {t} = useTranslation('SheetInfo')
 

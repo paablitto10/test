@@ -1,5 +1,5 @@
-import React, {ReactNode, useRef, useState} from 'react'
-import {View, useWindowDimensions, ViewToken} from 'react-native'
+import React, {useRef, useState} from 'react'
+import {View, useWindowDimensions} from 'react-native'
 import Animated, {
   useSharedValue,
   useAnimatedScrollHandler,
@@ -13,8 +13,10 @@ import FeatureGrid from './FeatureGrid'
 import Logos from './Logos'
 import Pagination from './Pagination'
 import SlideWelcome from './Slide'
+import type {ReactNode} from 'react'
+import type {ViewToken} from 'react-native'
 
-const WelcomeScreen = React.memo(() => {
+const WelcomeScreen = React.memo(function WelcomeScreen() {
   const {t} = useTranslation('WelcomeScreen')
   const {width: SCREEN_WIDTH} = useWindowDimensions()
   const flatListRef = useAnimatedRef<Animated.FlatList<DataItem>>()

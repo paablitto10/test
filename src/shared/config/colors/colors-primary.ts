@@ -1,4 +1,4 @@
-const colors = require('tailwindcss/colors')
+import colors from 'tailwindcss/colors'
 
 export const colorsPrimary = {
   slate: {light: colors.slate['500'], dark: colors.slate['100']},

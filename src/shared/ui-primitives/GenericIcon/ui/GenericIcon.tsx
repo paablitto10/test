@@ -1,9 +1,9 @@
-import {icons} from '@tabler/icons-react-native'
+import * as Icons from '@tabler/icons-react-native'
 import type {IconProps} from '@tabler/icons-react-native'
-import {FC} from 'react'
+import type {FC} from 'react'
 
-export const GenericIcon: T = ({name, ...props}) => {
-  const TablerIcon = icons[name]
+export const GenericIcon: FC<TProps> = ({name, ...props}) => {
+  const TablerIcon = ICONS[name]
 
   if (!TablerIcon) {
     console.error(`Icon "${name}" not found`)
@@ -13,10 +13,12 @@ export const GenericIcon: T = ({name, ...props}) => {
   return <TablerIcon {...props} />
 }
 
+//PARTS
+
+const ICONS = Icons as Record<TablerIconName, FC<IconProps>>
+
 // TYPES
 
-type T = FC<
-  IconProps & {
-    name: keyof typeof icons
-  }
->
+type TablerIconName = Extract<keyof typeof Icons, `Icon${string}`>
+
+type TProps = IconProps & {name: TablerIconName}

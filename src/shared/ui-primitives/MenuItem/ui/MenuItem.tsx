@@ -1,10 +1,10 @@
 import {forwardRef} from 'react'
 import {Image, Pressable, View} from 'react-native'
-import type {SvgProps} from 'react-native-svg'
 import {cn} from '@shared/lib/utils'
 import {Text} from '../../../ui/text'
+import type {SvgProps} from 'react-native-svg'
 
-const MenuItem = forwardRef(function (
+const MenuItem = forwardRef(function MenuItem(
   {label, icon: Icon, image, rightSection, onPress, className, disabled}: MenuItemProps,
   ref: React.ForwardedRef<React.ElementRef<typeof Pressable>>
 ) {

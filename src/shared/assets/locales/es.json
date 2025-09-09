@@ -84,7 +84,7 @@
   "FaqScreen.itemAnswer5": "Si encuentras problemas de sincronización o visualización, prueba lo siguiente:\n\n- Reinicia la aplicación\n- Verifica la estructura de tu hoja de cálculo\n- Contacta con nuestro soporte: ¡siempre estamos felices de ayudar!",
   "FaqScreen.itemQuestion1": "1. ¿Dónde se almacenan mis transacciones?",
   "FaqScreen.itemQuestion2": "2. ¿Puedo añadir transacciones manualmente a la hoja de Google?",
-  "FaqScreen.itemQuestion3": "3. ¿Es seguro usar NativeLaunch",
+  "FaqScreen.itemQuestion3": "3. ¿Es seguro usar NativeLaunch?",
   "FaqScreen.itemQuestion4": "4. ¿Puedo conectar múltiples hojas de cálculo?",
   "FaqScreen.itemQuestion5": "5. ¿Qué pasa si algo sale mal?",
   "HeaderPage.hello": "¡Hola!",
@@ -191,6 +191,10 @@
   "SelectFilter.byYear": "Por año",
   "SelectFilter.placeholder": "Todas las Cuentas",
   "SettingCardLocalAuth.title": "Iniciar sesión con FaceID",
+  "SettingCardNotifications.disabled": "Las notificaciones push están desactivadas",
+  "SettingCardNotifications.enabled": "Las notificaciones push están activadas",
+  "SettingCardNotifications.notEnabled": "Las notificaciones push no están habilitadas",
+  "SettingCardNotifications.title": "Notificaciones push",
   "SettingScreen.card.aboutApp.title": "Acerca de la Aplicación",
   "SettingScreen.card.appearance.title": "Apariencia",
   "SettingScreen.card.faq.title": "Preguntas Frecuentes",
@@ -247,5 +251,7 @@
   "WelcomeScreen.slide2.text": "Analiza fácilmente tus gastos por categoría por día, mes o año. Verás claramente en qué categoría de gastos tienes los mayores costos.",
   "WelcomeScreen.slide2.title": "Sigue tus gastos",
   "WelcomeScreen.slide3.desc": "Crea tu primer presupuesto e intenta no alcanzar el límite. Puedes hacer un presupuesto combinando varias categorías de gastos.",
-  "WelcomeScreen.slide3.title": "Planifica tu presupuesto"
+  "WelcomeScreen.slide3.title": "Planifica tu presupuesto",
+  "useScheduleNotification.body": "¡Es hora de anotar tus notas!",
+  "useScheduleNotification.title": "Recordatorio diario"
 }

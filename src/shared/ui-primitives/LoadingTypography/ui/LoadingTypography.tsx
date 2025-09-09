@@ -1,7 +1,7 @@
-import {SlottableTextProps} from '@rn-primitives/types'
 import {cn} from '@shared/lib/utils'
 import {Skeleton} from '@shared/ui/skeleton'
 import {Text} from '@shared/ui/text'
+import type {SlottableTextProps} from '@rn-primitives/types'
 
 const LoadingTypography = ({loading, classes, children, className, ...textProps}: TProps) => {
   return loading ? (

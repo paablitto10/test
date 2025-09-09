@@ -1,4 +1,3 @@
-// eslint-disable-next-line import/no-named-as-default
 import Constants from 'expo-constants'
 import {useTranslation} from '@shared/i18n'
 import {Text} from '@shared/ui/text'

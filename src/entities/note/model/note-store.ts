@@ -8,7 +8,7 @@ import {zustandStorage} from '@shared/storage/zustand-storage'
 import {useUserStore} from '../../user'
 import {removeNoteImage} from '../libs/removeNoteImage'
 import {uploadNoteImage} from '../libs/uploadNoteImage'
-import {CreateNote, Note, NoteID, UpdateNote} from './models'
+import type {CreateNote, Note, NoteID, UpdateNote} from './models'
 
 interface NotesStoreState {
   notesLoaded: boolean

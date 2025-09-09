@@ -1,13 +1,9 @@
 import React from 'react'
 import {View} from 'react-native'
-import Animated, {
-  useAnimatedStyle,
-  interpolate,
-  Extrapolation,
-  SharedValue,
-} from 'react-native-reanimated'
+import Animated, {useAnimatedStyle, interpolate, Extrapolation} from 'react-native-reanimated'
 import {Text} from '@shared/ui/text'
-import {DataItem} from './WelcomeScreen'
+import type {DataItem} from './WelcomeScreen'
+import type {SharedValue} from 'react-native-reanimated'
 
 const SlideWelcome = ({item, index, width, x}: SlideWelcomeProps) => {
   const imageAnimationStyle = useAnimatedStyle(() => {

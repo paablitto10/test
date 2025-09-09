@@ -59,6 +59,7 @@ export default function LoginScreen() {
       }
       await firebaseAnalytics?.logEvent('user_signed_up', {strategy})
       setTimeout(() => setLoading(false), 1000)
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (e) {
       setLoading(false)
     }

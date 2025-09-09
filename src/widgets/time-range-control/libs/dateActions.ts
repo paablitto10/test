@@ -1,5 +1,5 @@
 // Add
-import {TDateISO} from '@shared/lib/dates'
+import type {TDateISO} from '@shared/lib/dates'
 
 export const addDays = (date: Date | TDateISO, days: number): Date => {
   const result = new Date(date)
