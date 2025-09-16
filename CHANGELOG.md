@@ -1,6 +1,24 @@
 # Changelog
 
 
+## [2.0.0](https://github.com/nativelaunch/expolaunch-template/compare/native-launch-v1.0.0...native-launch-v2.0.0) (2025-09-16)
+
+
+### ⚠ BREAKING CHANGES
+
+* Expo SDK 53 requires migration steps and drops support for older Expo SDKs.
+
+### Features
+
+* rename project name from `expolaunch` to `nativelaunch` ([695b51e](https://github.com/nativelaunch/expolaunch-template/commit/695b51e2ecaf578c1350df0151ba1683313540a4))
+* update privacy-policy and terms page ([bca3b04](https://github.com/nativelaunch/expolaunch-template/commit/bca3b04212a9e8b772d481e6378a5f3ba8f5faca))
+* update README.md ([3f7b749](https://github.com/nativelaunch/expolaunch-template/commit/3f7b7495ad408dfbda526307b902407a88d8bf69))
+
+
+### Miscellaneous Chores
+
+* upgrade to Expo SDK 53 and migrate to New Architecture ([c112abf](https://github.com/nativelaunch/expolaunch-template/commit/c112abf89b672c6c5d508b535c52aebbb1d77f9e))
+
 ## [0.2.0](https://github.com/jonypopov/moneyplus-app/compare/money-plus-v0.1.0...money-plus-v0.2.0) (2025-02-08)
 
 
