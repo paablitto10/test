@@ -15,7 +15,7 @@ import SentryIcon from '@assets/logos/sentry.svg'
 import SupabaseIcon from '@assets/logos/supabase.svg'
 import TailwindIcon from '@assets/logos/tailwind.svg'
 import TSIcon from '@assets/logos/typescript.svg'
-import {useAuthStore} from '@entities/auth'
+import {loginByApple, loginByGoogle} from '@entities/auth'
 import {GoogleIcon, AppleIcon} from '@shared/assets/svg-icons'
 import {firebaseAnalytics} from '@shared/config/firebase'
 import {supabase} from '@shared/config/supabase'
@@ -28,10 +28,6 @@ export default function LoginScreen() {
   const {t} = useTranslation('LoginScreen')
   const router = useRouter()
   const [loading, setLoading] = useState(false)
-  const {loginByGoogle, loginByApple} = useAuthStore((state) => ({
-    loginByGoogle: state.loginByGoogle,
-    loginByApple: state.loginByApple,
-  }))
 
   const titleOpacity = useSharedValue(0)
   const titleTranslateY = useSharedValue(-10)

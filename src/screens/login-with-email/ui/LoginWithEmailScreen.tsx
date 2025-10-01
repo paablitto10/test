@@ -1,7 +1,7 @@
 import {toast} from '@backpackapp-io/react-native-toast'
 import {useState} from 'react'
 import {Image, Keyboard, ScrollView, View} from 'react-native'
-import {requestOtp, useAuthStore} from '@entities/auth'
+import {loginByEmail, requestOtp} from '@entities/auth'
 import {useTranslation} from '@shared/i18n'
 import {Text} from '@shared/ui/text'
 import {
@@ -20,10 +20,6 @@ export default function LoginWithEmailScreen() {
   const [mode, setMode] = useState<'signUp' | 'signIn'>('signUp')
   const [verifying, setVerifying] = useState(false)
   const [userEmail, setUserEmail] = useState('')
-
-  const {loginByEmail} = useAuthStore((state) => ({
-    loginByEmail: state.loginByEmail,
-  }))
 
   const authForm = useFinalForm({
     schema: loginWithEmailFormSchema,
