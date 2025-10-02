@@ -25,7 +25,7 @@ run-name: 'EAS build for ${{ github.event.inputs.platform }} (${{ github.event.i
 jobs:
   eas-build:
     name: 'EAS build for ${{ github.event.inputs.platform }} (${{ github.event.inputs.profile }})'
-    runs-on: ${{ github.event.inputs.use_self_hosted == 'true' && 'self-hosted' || (github.event.inputs.platform == 'ios' && 'macos-latest' || 'ubuntu-latest') }}
+    runs-on: ${{ github.event.inputs.use_self_hosted == 'true' && 'self-hosted' || (github.event.inputs.platform == 'ios' && 'macos-15' || 'ubuntu-latest') }}
     environment:
       name: ${{ github.event.inputs.profile }}
     steps:
