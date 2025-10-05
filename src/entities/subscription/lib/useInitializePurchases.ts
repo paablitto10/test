@@ -1,26 +1,34 @@
-import {toast} from '@backpackapp-io/react-native-toast'
 import {useEffect} from 'react'
 import {Platform} from 'react-native'
 import Purchases, {LOG_LEVEL} from 'react-native-purchases'
+import {Env} from '@shared/lib/env'
 
 export function useInitializePurchases() {
   useEffect(() => {
     Purchases.setLogLevel(LOG_LEVEL.ERROR)
 
     if (Platform.OS === 'ios') {
-      if (!process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS) {
-        toast.error('Missing RevenueCat API key')
+      if (__DEV__ && !Env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS) {
+        console.warn(
+          '[RevenueCat]: ⚠️ Disabled — no API key set for this platform. ' +
+            'Add EXPO_PUBLIC_REVENUECAT_API_KEY_IOS or EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID' +
+            ' in .env file.'
+        )
       } else {
         Purchases.configure({
-          apiKey: process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS,
+          apiKey: Env.EXPO_PUBLIC_REVENUECAT_API_KEY_IOS,
         })
       }
     } else if (Platform.OS === 'android') {
-      if (!process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID) {
-        toast.error('Missing RevenueCat API key')
+      if (__DEV__ && !Env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID) {
+        console.warn(
+          '[RevenueCat]: ⚠️ Disabled — no API key set for this platform. ' +
+            'Add EXPO_PUBLIC_REVENUECAT_API_KEY_IOS or EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID' +
+            ' in .env file.'
+        )
       } else {
         Purchases.configure({
-          apiKey: process.env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID,
+          apiKey: Env.EXPO_PUBLIC_REVENUECAT_API_KEY_ANDROID,
         })
       }
     }

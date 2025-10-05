@@ -15,7 +15,7 @@ on:
       profile:
         description: 'EAS build profile'
         type: choice
-        options: [preview, production]
+        options: [production, development, preview]
         default: production
 
 run-name: 'EAS cloud build for ${{ github.event.inputs.platform }} (${{ github.event.inputs.profile }})'

@@ -14,7 +14,7 @@ on:
       profile:
         type: choice
         description: 'Build profile to use'
-        options: [production, preview]
+        options: [production, development, preview]
       use_self_hosted:
         type: boolean
         description: 'Use self-hosted runner'
@@ -55,6 +55,7 @@ jobs:
         run: npm run prebuild
 
       - name: '🔑 Restore Expo credentials'
+        if: ${{ github.event.inputs.platform == 'ios' }}
         run: |
           echo "$EXPO_CREDENTIALS_B64" | base64 -D > ios-creds.tar.gz
           tar xzvf ios-creds.tar.gz
@@ -63,7 +64,7 @@ jobs:
 
       - name: '👷 Build app'
         env:
-          APP_ENV: 'production'
+          APP_ENV: ${{ github.event.inputs.profile }}
           EXPO_PUBLIC_SUPABASE_PROJECT_URL: ${{ secrets.EXPO_PUBLIC_SUPABASE_PROJECT_URL }}
           EXPO_PUBLIC_SUPABASE_ANON_KEY: ${{ secrets.EXPO_PUBLIC_SUPABASE_ANON_KEY }}
           EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID: ${{ secrets.EXPO_PUBLIC_GOOGLE_WEB_CLIENT_ID }}

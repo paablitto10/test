@@ -1,5 +1,6 @@
 import 'dotenv/config'
 import fs from 'fs'
+import {ClientEnv, Env} from './env'
 
 const isFirebaseConfiguredForAndroid = fs.existsSync('./google-services.json')
 const isFirebaseConfiguredForIos = fs.existsSync('./GoogleService-Info.plist')
@@ -9,14 +10,14 @@ const isProd = process.env.APP_ENV === 'production'
 
 export default {
   expo: {
-    name: 'NativeLaunch',
-    slug: 'native-launch',
-    description: 'Expo start kit',
-    version: '1.0.0',
-    owner: 'jonypopov',
+    name: Env.NAME,
+    slug: Env.SLUG,
+    description: `${Env.NAME} Mobile App`,
+    owner: Env.EXPO_ACCOUNT_OWNER,
+    scheme: Env.SCHEME,
+    version: Env.VERSION.toString(),
     orientation: 'portrait',
     icon: './assets/images/icon.png',
-    scheme: 'nativelaunch',
     userInterfaceStyle: 'automatic',
     newArchEnabled: true,
     platforms: ['ios', 'android'],
@@ -26,9 +27,9 @@ export default {
     ios: {
       deploymentTarget: '16.0',
       supportsTablet: true,
-      bundleIdentifier: 'com.nativelaunch.app',
+      bundleIdentifier: Env.BUNDLE_ID,
       usesAppleSignIn: true,
-      appleTeamId: 'YOUR_APPLE_TEAM_ID',
+      appleTeamId: Env.APPLE_TEAM_ID,
       config: {
         usesNonExemptEncryption: false,
       },
@@ -40,7 +41,7 @@ export default {
       },
       entitlements: {
         'aps-environment': isProd ? 'production' : 'development', // ✅ Required for push notification, change to "production" for Testflight and App Store builds
-        'com.apple.security.application-groups': ['group.{YOUR_BUNDLE_ID}.onesignal'],
+        'com.apple.security.application-groups': [`group.${Env.BUNDLE_ID}.onesignal`],
       },
     },
     android: {
@@ -48,7 +49,7 @@ export default {
         foregroundImage: './assets/images/adaptive-icon.png',
         backgroundColor: '#D29647',
       },
-      package: 'com.nativelaunch.app',
+      package: Env.PACKAGE,
       permissions: [
         'android.permission.RECORD_AUDIO',
         'android.permission.USE_BIOMETRIC',
@@ -118,7 +119,7 @@ export default {
       [
         '@sentry/react-native/expo',
         {
-          organization: 'money-plus',
+          organization: 'YOUR_SENTRY_ORGANIZATION',
           project: 'YOUR_SENTRY_PROJECT_ID',
           url: 'https://sentry.io/',
         },
@@ -132,8 +133,9 @@ export default {
       typedRoutes: true,
     },
     extra: {
+      ...ClientEnv,
       eas: {
-        projectId: 'YOUR_PROJECT_ID',
+        projectId: Env.EAS_PROJECT_ID,
       },
       router: {
         origin: false,
