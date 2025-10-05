@@ -47,10 +47,10 @@ export const ScreenContent = memo(function ScreenContent(props: ScreenProps) {
       })
     }
 
-    BackHandler.addEventListener('hardwareBackPress', () => disableBackHandler)
+    const subscription = BackHandler.addEventListener('hardwareBackPress', () => disableBackHandler)
 
     return () => {
-      // BackHandler.removeEventListener('hardwareBackPress', () => disableBackHandler)
+      subscription.remove()
     }
   }, [])
 
