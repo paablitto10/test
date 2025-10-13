@@ -3,7 +3,15 @@ import {IconCheck} from '@tabler/icons-react-native'
 import {useMutation} from '@tanstack/react-query'
 import {Link, useRouter} from 'expo-router'
 import {useCallback, useEffect, useState} from 'react'
-import {ActivityIndicator, Alert, Linking, ScrollView, TouchableOpacity, View} from 'react-native'
+import {
+  ActivityIndicator,
+  Alert,
+  Linking,
+  Platform,
+  ScrollView,
+  TouchableOpacity,
+  View,
+} from 'react-native'
 import Purchases from 'react-native-purchases'
 import {usePurchasesPackages, useUserEntitlements, updatePaywallDate} from '@entities/subscription'
 import {firebaseAnalytics} from '@shared/config/firebase'
@@ -98,6 +106,9 @@ export default function PaywallScreen() {
         automaticallyAdjustKeyboardInsets
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
+        style={{
+          paddingTop: Platform.OS === 'ios' && Number(Platform.Version) >= 26 ? 20 : 0,
+        }}
       >
         <View className="flex-row gap-2 justify-center items-center">
           <Text className="font-semiBold text-4xl text-primary text-center">NativeLaunch</Text>
