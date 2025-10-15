@@ -1,6 +1,22 @@
 # Changelog
 
 
+## [2.1.0](https://github.com/nativelaunch/expolaunch-template/compare/native-launch-v2.0.0...native-launch-v2.1.0) (2025-10-15)
+
+
+### Features
+
+* **env:** centralize environment config and add consistent feature logs ([9d3eb08](https://github.com/nativelaunch/expolaunch-template/commit/9d3eb0808cb11449fb08dc65d08ecd01f2b4ada3))
+* **paywall:** add interval check and last shown date tracking ([aa8ace1](https://github.com/nativelaunch/expolaunch-template/commit/aa8ace1a9d6ae567ff004b81c709114edfefcc1c))
+
+
+### Bug Fixes
+
+* **ci:** set runner to macos-15 ([20ff2e0](https://github.com/nativelaunch/expolaunch-template/commit/20ff2e0505dc3b94008b3c8cf3dfde19f1cb9f58))
+* **ios:** adjust paywall padding for iOS 26+ ([38e6bc5](https://github.com/nativelaunch/expolaunch-template/commit/38e6bc5c01d453ed28467a71588095d0616ef25f))
+* remove unnecessary css variables from global.css ([63a7c33](https://github.com/nativelaunch/expolaunch-template/commit/63a7c33bd4a24cf3de97a369cbb92e71f229bd67))
+* update supabase/migrations with current schema ([a61230a](https://github.com/nativelaunch/expolaunch-template/commit/a61230a4a8507d9f42361dd52334edde2e048617))
+
 ## [2.0.0](https://github.com/nativelaunch/expolaunch-template/compare/native-launch-v1.0.0...native-launch-v2.0.0) (2025-09-16)
 
 
