@@ -26,7 +26,7 @@ npm start
 
 ## 🧠 What’s Included
 
-- 📱 Expo SDK 52 (Bare-compatible)
+- 📱 Expo SDK 54, React Native 0.81
 - ⚛️ TypeScript
 - 🔒 Supabase Auth (Google, Apple, Email)
 - 💰 RevenueCat (In-App Subscriptions)
@@ -70,7 +70,3 @@ Full documentation available at:
 
 Having issues or questions?  
 Reach out via [jonypopovv@gmail.com](mailto:jonypopovv@gmail.com)
-
----
-
-Built with ❤️ by [Евгений Попов](https://moneyplusapp.com)
