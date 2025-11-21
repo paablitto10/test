@@ -1,6 +1,17 @@
 # Changelog
 
 
+## [3.0.0](https://github.com/nativelaunch/expolaunch-template/compare/native-launch-v2.1.0...native-launch-v3.0.0) (2025-11-21)
+
+
+### ⚠ BREAKING CHANGES
+
+* Expo SDK 54 introduces updates to React Native and requires adjustments in dependencies (e.g., NativeWind, UI primitives, safe-area context). Older Expo SDK versions are no longer supported.
+
+### Miscellaneous Chores
+
+* upgrade to Expo SDK 54 and update related dependencies ([9df3495](https://github.com/nativelaunch/expolaunch-template/commit/9df3495bf11b49ac3dc5c49d892c4e8121002bd9))
+
 ## [2.1.0](https://github.com/nativelaunch/expolaunch-template/compare/native-launch-v2.0.0...native-launch-v2.1.0) (2025-10-15)
 
 
