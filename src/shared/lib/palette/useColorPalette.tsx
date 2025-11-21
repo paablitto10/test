@@ -11,9 +11,7 @@ type GetColorOptions = {
  * Not able to use feature flag in burndown-chart somehow
  */
 export function useColorPalette() {
-  const {preferredPalette} = useUserSettingsStore((state) => ({
-    preferredPalette: state.preferredPalette,
-  }))
+  const preferredPalette = useUserSettingsStore((state) => state.preferredPalette)
 
   const {colorScheme} = useColorScheme()
 

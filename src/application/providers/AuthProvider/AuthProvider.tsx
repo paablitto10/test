@@ -51,9 +51,7 @@ export function AuthProvider({children}: AuthProviderProps) {
   const [userAuth, setAuth] = useState<UserSupabase | null>(null)
   const {handleResetStore} = useResetStores()
 
-  const {setUser} = useUserStore((state) => ({
-    setUser: state.setUser,
-  }))
+  const setUser = useUserStore((state) => state.setUser)
 
   useEffect(() => {
     if (!supabase) {

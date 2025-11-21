@@ -1,6 +1,6 @@
-import {MMKV} from 'react-native-mmkv'
+import {createMMKV} from 'react-native-mmkv'
 
-export const apiStorageMMKV = new MMKV({
+export const apiStorageMMKV = createMMKV({
   id: 'money-api-storage',
 })
 
@@ -13,6 +13,6 @@ export const apiStorage = {
     return value ?? null
   },
   removeItem: (name: string) => {
-    return apiStorageMMKV.delete(name)
+    return apiStorageMMKV.remove(name)
   },
 }

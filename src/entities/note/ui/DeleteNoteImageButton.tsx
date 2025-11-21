@@ -13,10 +13,8 @@ export const DeleteNoteImageButton = ({
   onComplete,
   beforeDelete,
 }: DeleteNoteImageButtonProps) => {
-  const {getNote, updateNote} = useNotesStore((state) => ({
-    getNote: state.getNote,
-    updateNote: state.updateNote,
-  }))
+  const getNote = useNotesStore((state) => state.getNote)
+  const updateNote = useNotesStore((state) => state.updateNote)
 
   const [loadingModal, setLoadingModal] = useState(false)
   const [confirmationIsOpen, setConfirmationIsOpen] = useState(false)

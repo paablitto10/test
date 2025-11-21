@@ -17,9 +17,7 @@ export const CreateNoteForm = ({autoFocus}: CreateNoteFormProps) => {
   const navigate = useRouter()
   const [localUri, setLocalUri] = useState<string | undefined>(undefined)
 
-  const {createNote} = useNotesStore((state) => ({
-    createNote: state.createNote,
-  }))
+  const createNote = useNotesStore((state) => state.createNote)
 
   const form = useFinalForm({
     schema: createNoteFormSchema,

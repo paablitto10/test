@@ -8,9 +8,7 @@ import {Text} from '@shared/ui/text'
 
 export function ProfileCard() {
   const router = useRouter()
-  const {user} = useUserStore((state) => ({
-    user: state.user,
-  }))
+  const user = useUserStore((state) => state.user)
   const {isPro} = useUserEntitlements()
 
   return (

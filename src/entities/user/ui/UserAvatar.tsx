@@ -10,9 +10,7 @@ export const UserAvatar = memo(function UserAvatar({
   fallbackClassName,
   fallbackLabelClassName,
 }: UserAvatarProps) {
-  const {user} = useUserStore((state) => ({
-    user: state.user,
-  }))
+  const user = useUserStore((state) => state.user)
   const shortName = user?.full_name?.split(' ')[0].slice(0, 2)
 
   return (

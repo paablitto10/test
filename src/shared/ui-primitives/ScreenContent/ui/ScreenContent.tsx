@@ -1,6 +1,7 @@
 import {useNavigation} from 'expo-router'
-import {memo, useEffect, useRef} from 'react'
-import {Animated, BackHandler, KeyboardAvoidingView} from 'react-native'
+import {memo, useEffect} from 'react'
+import {BackHandler, KeyboardAvoidingView} from 'react-native'
+import Animated, {FadeIn} from 'react-native-reanimated'
 import {SafeAreaView} from 'react-native-safe-area-context'
 import {isIos} from '@shared/lib/isIos'
 import {cn} from '@shared/lib/utils'
@@ -22,19 +23,8 @@ export const ScreenContent = memo(function ScreenContent(props: ScreenProps) {
     disableBackHandler = false,
   } = props
 
-  const opacityAnim = useRef(new Animated.Value(0)).current
-
-  useEffect(() => {
-    Animated.timing(opacityAnim, {
-      toValue: 1,
-      duration: 250,
-      useNativeDriver: true,
-    }).start()
-  }, [opacityAnim])
-
   useEffect(() => {
     navigation?.setOptions({
-      //headerShown: true,
       headerTitleAlign: 'center',
       headerShadowVisible: false,
       gestureEnabled: !disableBackHandler,
@@ -69,8 +59,9 @@ export const ScreenContent = memo(function ScreenContent(props: ScreenProps) {
       enabled={avoiding}
     >
       <Animated.View
-        className={cn('flex-1', backgroundColor ?? 'bg-background')}
-        style={[{opacity: opacityAnim}]}
+        entering={FadeIn.duration(250)}
+        style={{flex: 1}}
+        className={cn(backgroundColor ?? 'bg-background')}
       >
         <SafeAreaView edges={edges.filter((el) => !excludeEdges.includes(el))} style={{flex: 1}}>
           {children}

@@ -1,6 +1,5 @@
 export {FinalFormProvider} from './FinalFormProvider'
 export {useFinalForm} from './useFinalForm'
-export {UseFinalForReturn} from './useFinalForm'
 export {FinalForm} from './FinalForm'
 export {FinalFormFields} from './FinalFormFields'
 export {FinalFormButtons} from './FinalFormButtons'

@@ -12,10 +12,8 @@ export default function AppearanceScreen() {
   const {colorScheme, setColorScheme} = useColorScheme()
   const width = useWindowDimensions().width
 
-  const {preferredTheme, setPreferredTheme} = useUserSettingsStore((state) => ({
-    preferredTheme: state.preferredTheme,
-    setPreferredTheme: state.setPreferredTheme,
-  }))
+  const preferredTheme = useUserSettingsStore((state) => state.preferredTheme)
+  const setPreferredTheme = useUserSettingsStore((state) => state.setPreferredTheme)
 
   const handleChange = (theme: TTheme['id']) => {
     setPreferredTheme(theme)

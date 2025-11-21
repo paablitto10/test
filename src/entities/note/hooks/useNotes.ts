@@ -9,10 +9,8 @@ export const useNotes = ({startDate, endDate}: UseNotesOptions = {}) => {
   const [isRefreshing, setIsRefreshing] = useState(false)
   const [hasMore, setHasMore] = useState(true)
 
-  const {fetchNotes, notes} = useNotesStore((state) => ({
-    fetchNotes: state.fetchNotes,
-    notes: state.notes,
-  }))
+  const notes = useNotesStore((state) => state.notes)
+  const fetchNotes = useNotesStore((state) => state.fetchNotes)
 
   const loadMore = useCallback(async () => {
     if (isLoading || !hasMore) return

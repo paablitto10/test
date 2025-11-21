@@ -1,4 +1,4 @@
-import * as FileSystem from 'expo-file-system'
+import * as FileSystem from 'expo-file-system/legacy'
 import {CACHE_DIR_FOR_NOTE_IMG} from '../model/constants'
 
 export const downloadAndCacheImage = async (url: string, noteId: string): Promise<string> => {

@@ -8,9 +8,7 @@ export const HeaderPage = () => {
   const {t} = useTranslation('HeaderPage')
   const router = useRouter()
 
-  const {user} = useUserStore((state) => ({
-    user: state.user,
-  }))
+  const user = useUserStore((state) => state.user)
 
   return (
     <TouchableOpacity

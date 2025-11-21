@@ -20,6 +20,7 @@ import {Button} from '@shared/ui/button'
 import {Text} from '@shared/ui/text'
 import {ScreenContent} from '@shared/ui-primitives/ScreenContent'
 import {PackageCard} from './PackageCard'
+import type {PurchasesPackage} from 'react-native-purchases'
 
 export default function PaywallScreen() {
   const {t} = useTranslation('PaywallScreen')
@@ -29,7 +30,7 @@ export default function PaywallScreen() {
   const router = useRouter()
 
   const {mutateAsync, isPending} = useMutation({
-    mutationFn: Purchases.purchasePackage,
+    mutationFn: (pkg: PurchasesPackage) => Purchases.purchasePackage(pkg),
     onSuccess() {
       refetch()
       router.back()

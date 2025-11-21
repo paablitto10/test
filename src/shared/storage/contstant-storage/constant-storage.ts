@@ -1,6 +1,6 @@
-import {MMKV} from 'react-native-mmkv'
+import {createMMKV} from 'react-native-mmkv'
 
-export const constantStorageMMKV = new MMKV({
+export const constantStorageMMKV = createMMKV({
   id: 'money-constant-storage',
 })
 
@@ -19,6 +19,6 @@ export const constantStorage = {
     return constantStorageMMKV.set(name, value)
   },
   removeItem: (name: string) => {
-    return constantStorageMMKV.delete(name)
+    return constantStorageMMKV.remove(name)
   },
 }

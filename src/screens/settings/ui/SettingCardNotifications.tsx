@@ -10,7 +10,10 @@ import {Switch} from '@shared/ui/switch'
 
 export function SettingCardNotifications() {
   const {t} = useTranslation('SettingCardNotifications')
-  const {enabledPushNotifications, setEnabledPushNotifications} = useUserSettingsStore()
+  const enabledPushNotifications = useUserSettingsStore((state) => state.enabledPushNotifications)
+  const setEnabledPushNotifications = useUserSettingsStore(
+    (state) => state.setEnabledPushNotifications
+  )
   const [loading, setLoading] = useState(false)
 
   const onToggle = async (checked: boolean) => {
@@ -47,7 +50,7 @@ export function SettingCardNotifications() {
           checked={enabledPushNotifications}
           disabled={loading}
           onCheckedChange={onToggle}
-          className={cn(!enabledPushNotifications && 'bg-muted-foreground/30')}
+          className={cn(!enabledPushNotifications && '!bg-muted-foreground/30')}
         />
       }
       iconClassName="text-teal-700 dark:text-teal-400"

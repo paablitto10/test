@@ -68,11 +68,10 @@ export function SelectView({value = NotesView.All, onSelect, onTimeRangeChange}:
       }}
     >
       <SelectTrigger
-        hideArrow
         hitSlop={{top: 10, bottom: 10, left: 10, right: 10}}
         className={cn(
           '!h-10 !px-2.5 flex-row items-center gap-2',
-          value !== NotesView.All && 'border-primary bg-primary'
+          value !== NotesView.All && 'border-primary !bg-primary'
         )}
       >
         <IconFilter

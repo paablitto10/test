@@ -10,36 +10,29 @@ import {
   type SubmitErrorHandler,
   type DefaultValues,
 } from 'react-hook-form'
-import {type TypeOf, type z} from 'zod'
 import {useChanged} from '@shared/lib/state'
+import type {z} from 'zod'
 
-interface UseFinalFormProps<
-  TFieldValues extends z.infer<TSchema>,
-  TSchema extends z.Schema,
-  TContext = unknown,
-> extends Omit<UseFormProps<TFieldValues, TContext>, 'resolver' | 'defaultValues'> {
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+type AnyZodType = z.ZodType<any, any, any>
+
+interface UseFinalFormProps<TSchema extends AnyZodType, TContext = unknown>
+  extends Omit<UseFormProps<z.input<TSchema>, TContext, z.output<TSchema>>, 'resolver'> {
   schema: TSchema
-  defaultValues?: DefaultValues<TFieldValues>
+  defaultValues?: DefaultValues<z.input<TSchema>>
   isLoading?: boolean
   onSuccess?: () => void
   onError?: (error: unknown) => void
-  onSubmit?: (payload: z.infer<TSchema>) => Promise<unknown> | void
+  onSubmit?: (payload: z.output<TSchema>) => Promise<unknown> | void
   shouldResetAfterSubmit?: boolean
 }
 
-export interface UseFinalForReturn<
-  TFieldValues extends z.infer<TSchema>,
-  TSchema extends z.Schema,
-  TContext = unknown,
-> extends UseFormReturn<TFieldValues, TContext, z.infer<TSchema>> {
+export interface UseFinalFormReturn<TSchema extends AnyZodType, TContext = unknown>
+  extends UseFormReturn<z.input<TSchema>, TContext, z.output<TSchema>> {
   isLoading: boolean
 }
 
-export function useFinalForm<
-  TFieldValues extends z.infer<TSchema>,
-  TSchema extends z.Schema,
-  TContext = unknown,
->({
+export function useFinalForm<TSchema extends AnyZodType, TContext = unknown>({
   schema,
   isLoading = false,
   values,
@@ -49,14 +42,10 @@ export function useFinalForm<
   onSuccess,
   shouldResetAfterSubmit = true,
   ...props
-}: UseFinalFormProps<TFieldValues, TSchema, TContext>): UseFinalForReturn<
-  TFieldValues,
-  TSchema,
-  TContext
-> {
+}: UseFinalFormProps<TSchema, TContext>): UseFinalFormReturn<TSchema, TContext> {
   const defaultValuesMemoized = useChanged(defaultValues, dequal)
 
-  const form = useForm<TFieldValues, TContext>({
+  const form = useForm<z.input<TSchema>, TContext, z.output<TSchema>>({
     mode: 'all',
     resetOptions: {
       keepDirtyValues: true,
@@ -117,33 +106,35 @@ export function useFinalForm<
     }
   }, [submitCount, shouldResetAfterSubmit])
 
+  const handleSubmit = (
+    onValid: SubmitHandler<z.output<TSchema>>,
+    onInvalid?: SubmitErrorHandler<z.input<TSchema>>
+  ) =>
+    handleSubmitNative(async (data) => {
+      try {
+        await onSubmit?.(data)
+
+        if (onSuccess) {
+          onSuccess()
+        } else {
+          /*enqueueSnackbar('Operation completed successfully', {
+            variant: 'success',
+          })*/
+        }
+
+        onValid(data)
+      } catch (error) {
+        if (onError) {
+          onError(error)
+        } else {
+          toast.error('Some fields are invalid')
+        }
+      }
+    }, onInvalid)
+
   return {
     ...form,
     isLoading,
-    handleSubmit: (
-      onValid: SubmitHandler<z.infer<TSchema>>,
-      onInvalid?: SubmitErrorHandler<TypeOf<TSchema>>
-    ) =>
-      handleSubmitNative(async (data) => {
-        try {
-          await onSubmit?.(data)
-
-          if (onSuccess) {
-            onSuccess()
-          } else {
-            /*enqueueSnackbar('Operation completed successfully', {
-              variant: 'success',
-            })*/
-          }
-
-          onValid(data)
-        } catch (error) {
-          if (onError) {
-            onError(error)
-          } else {
-            toast.error('Some fields are invalid')
-          }
-        }
-      }, onInvalid),
+    handleSubmit,
   }
 }

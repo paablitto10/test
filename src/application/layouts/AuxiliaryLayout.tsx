@@ -1,5 +1,5 @@
 import {Stack} from 'expo-router'
-import {SafeAreaView} from 'react-native'
+import {SafeAreaView} from 'react-native-safe-area-context'
 import {useTranslation} from '@shared/i18n'
 import {useColorPalette} from '@shared/lib/palette'
 import {BackButton} from './ui/BackButton'

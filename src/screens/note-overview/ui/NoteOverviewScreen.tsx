@@ -26,11 +26,9 @@ export default function NoteOverviewScreen() {
   if (typeof id === 'undefined') {
     throw new Error('Impossible expense category id')
   }
+  const getNote = useNotesStore((state) => state.getNote)
+  const updateNote = useNotesStore((state) => state.updateNote)
 
-  const {getNote, updateNote} = useNotesStore((state) => ({
-    getNote: state.getNote,
-    updateNote: state.updateNote,
-  }))
   const note = getNote(id)
 
   const form = useFinalForm({

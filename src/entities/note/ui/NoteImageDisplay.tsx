@@ -1,5 +1,5 @@
 import {IconArrowLeft} from '@tabler/icons-react-native'
-import * as FileSystem from 'expo-file-system'
+import * as FileSystem from 'expo-file-system/legacy'
 import {useEffect, useState} from 'react'
 import {Image, Pressable, Modal, View} from 'react-native'
 import {useSafeAreaInsets} from 'react-native-safe-area-context'

@@ -1,7 +1,7 @@
-import {MMKV} from 'react-native-mmkv'
+import {createMMKV} from 'react-native-mmkv'
 import type {SupportedStorage} from '@supabase/supabase-js'
 
-const supabaseStorageMMKV = new MMKV({
+const supabaseStorageMMKV = createMMKV({
   id: 'supabase-storage',
 })
 
@@ -11,5 +11,7 @@ export const supabaseStorage = {
     const value = supabaseStorageMMKV.getString(name)
     return value ?? null
   },
-  removeItem: (name) => supabaseStorageMMKV.delete(name),
+  removeItem: (name) => {
+    supabaseStorageMMKV.remove(name)
+  },
 } satisfies SupportedStorage

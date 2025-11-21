@@ -1,7 +1,7 @@
 import {IconFaceId, IconLock} from '@tabler/icons-react-native'
 import * as LocalAuthentication from 'expo-local-authentication'
 import {useCallback, useEffect} from 'react'
-import {SafeAreaView} from 'react-native'
+import {SafeAreaView} from 'react-native-safe-area-context'
 import {useTranslation} from '@shared/i18n'
 import {Button} from '@shared/ui/button'
 import {Text} from '@shared/ui/text'

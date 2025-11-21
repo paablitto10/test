@@ -11,10 +11,8 @@ import {Switch} from '@shared/ui/switch'
 export function SettingCardLocalAuth() {
   const {t} = useTranslation('SettingCardLocalAuth')
   const [isBiometricSupported, setIsBiometricSupported] = useState(false)
-  const {enabledLocalAuth, setEnabledLocalAuth} = useUserSettingsStore((state) => ({
-    enabledLocalAuth: state.enabledLocalAuth,
-    setEnabledLocalAuth: state.setEnabledLocalAuth,
-  }))
+  const enabledLocalAuth = useUserSettingsStore((state) => state.enabledLocalAuth)
+  const setEnabledLocalAuth = useUserSettingsStore((state) => state.setEnabledLocalAuth)
 
   useEffect(() => {
     ;(async () => {
@@ -48,7 +46,7 @@ export function SettingCardLocalAuth() {
         <Switch
           checked={enabledLocalAuth}
           onCheckedChange={handleToggleLocalAuth}
-          className={cn(!enabledLocalAuth && 'bg-muted-foreground/30')}
+          className={cn(!enabledLocalAuth && '!bg-muted-foreground/30')}
         />
       }
       iconClassName="bg-cyan-200 dark:bg-cyan-700"

@@ -1,7 +1,7 @@
-import {MMKV} from 'react-native-mmkv'
+import {createMMKV} from 'react-native-mmkv'
 import type {StateStorage} from 'zustand/middleware'
 
-export const zustandStorageMMKV = new MMKV({
+export const zustandStorageMMKV = createMMKV({
   id: 'money-store-storage',
 })
 
@@ -14,6 +14,6 @@ export const zustandStorage: StateStorage = {
     return value ?? null
   },
   removeItem: (name) => {
-    return zustandStorageMMKV.delete(name)
+    return zustandStorageMMKV.remove(name)
   },
 }

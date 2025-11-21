@@ -13,9 +13,7 @@ import {BackButton} from './ui/BackButton'
 export default function AppLayout() {
   const {t} = useTranslation('AppLayout')
   const loadState = useLoadState()
-  const {user} = useUserStore((state) => ({
-    user: state.user,
-  }))
+  const user = useUserStore((state) => state.user)
   const {getColor} = useColorPalette()
   const router = useRouter()
   const pathname = usePathname()

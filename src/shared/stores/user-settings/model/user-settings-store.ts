@@ -14,7 +14,7 @@ interface UserSettingsStore {
 }
 
 export const useUserSettingsStore = create<UserSettingsStore>()(
-  persist<UserSettingsStore>(
+  persist(
     (set) => ({
       enabledLocalAuth: false,
       setEnabledLocalAuth: (enabledLocalAuth) => set({enabledLocalAuth}),

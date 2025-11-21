@@ -27,10 +27,8 @@ import {BottomSheet} from '@shared/ui-primitives/Sheet'
 export default function MyProfileScreen() {
   const {t} = useTranslation('MyProfileScreen')
   const {handleLogout} = useHandleLogout()
-  const {user, updateUser} = useUserStore((state) => ({
-    user: state.user,
-    updateUser: state.updateUser,
-  }))
+  const user = useUserStore((state) => state.user)
+  const updateUser = useUserStore((state) => state.updateUser)
 
   const {avatar_url, full_name, email} = user ?? {}
   const sheetRef = useRef<BottomSheetModal>(null)

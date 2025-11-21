@@ -36,7 +36,7 @@ export function useScheduleNotification() {
 }
 
 export function useScheduleNotificationSync({isSignedIn}: {isSignedIn: boolean}) {
-  const {enabledPushNotifications} = useUserSettingsStore()
+  const enabledPushNotifications = useUserSettingsStore((state) => state.enabledPushNotifications)
   const {scheduleReminderNotification, cancelAllScheduledNotifications} = useScheduleNotification()
 
   const triggerScheduleNotification = useCallback(async () => {

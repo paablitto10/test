@@ -25,10 +25,8 @@ export const UserAvatarPicker = ({
   const bottomSheetModalRef = useRef<BottomSheetModal>(null)
   const {bottom} = useSafeAreaInsets()
   const {getColor} = useColorPalette()
-  const {user, updateUser} = useUserStore((state) => ({
-    user: state.user,
-    updateUser: state.updateUser,
-  }))
+  const user = useUserStore((state) => state.user)
+  const updateUser = useUserStore((state) => state.updateUser)
   const shortName = user?.full_name?.split(' ')[0].slice(0, 2)
   const [loading, setLoading] = useState<boolean>(false)
 

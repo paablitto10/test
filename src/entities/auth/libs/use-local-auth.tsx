@@ -8,7 +8,7 @@ const BIO_AUTH_EXPIRATION_TIME = 1000 * 30
 
 export function useLocalAuth() {
   const [shouldAuthLocal, setShouldAuthLocal] = useState(false)
-  const {enabledLocalAuth} = useUserSettingsStore()
+  const enabledLocalAuth = useUserSettingsStore((state) => state.enabledLocalAuth)
 
   const changeAppStateListener = useCallback(
     async (status: AppStateStatus) => {

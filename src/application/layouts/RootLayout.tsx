@@ -95,9 +95,7 @@ function RootLayout() {
   const {colorScheme, setColorScheme} = useColorScheme()
   const {getColor} = useColorPalette()
   const [isColorSchemeLoaded, setIsColorSchemeLoaded] = useState(false)
-  const {preferredTheme} = useUserSettingsStore((state) => ({
-    preferredTheme: state.preferredTheme,
-  }))
+  const preferredTheme = useUserSettingsStore((state) => state.preferredTheme)
 
   useEffect(() => {
     if (Platform.OS === 'android') {

@@ -1,6 +1,6 @@
-import {MMKV} from 'react-native-mmkv'
+import {createMMKV} from 'react-native-mmkv'
 
-export const globalStorageMMKV = new MMKV({
+export const globalStorageMMKV = createMMKV({
   id: 'money-global-storage',
 })
 
@@ -19,6 +19,6 @@ export const globalStorage = {
     return globalStorageMMKV.set(name, value)
   },
   removeItem: (name: string) => {
-    return globalStorageMMKV.delete(name)
+    return globalStorageMMKV.remove(name)
   },
 }

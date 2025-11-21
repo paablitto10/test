@@ -12,9 +12,7 @@ export function usePurchasesPackages() {
 }
 
 export function useUserEntitlements(): TUseUserEntitlements {
-  const {user} = useUserStore((state) => ({
-    user: state.user,
-  }))
+  const user = useUserStore((state) => state.user)
 
   const {data: customerInfo, refetch} = useQuery({
     queryKey: ['entitlements', user?.id],

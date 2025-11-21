@@ -28,11 +28,10 @@ interface NotesStoreState {
 }
 
 export const useNotesStore = create<NotesStoreState>()(
-  persist<NotesStoreState>(
+  persist(
     (set, get) => ({
       notesLoaded: false,
       notes: [],
-      userId: null,
       setNotes: async (notes) => {
         set({notes})
       },
