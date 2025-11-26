@@ -5,6 +5,7 @@ import Purchases from 'react-native-purchases'
 import {useLoadState} from '@features/load-state'
 import {shouldShowPaywall, useInitializePurchases} from '@entities/subscription'
 import {useUserStore} from '@entities/user'
+import {REVENUECAT_ENABLED} from '@shared/config/revenueCat'
 import {useTranslation} from '@shared/i18n'
 import {useScheduleNotificationSync} from '@shared/lib/notifications'
 import {useColorPalette} from '@shared/lib/palette'
@@ -25,17 +26,19 @@ export default function AppLayout() {
     if (user && pathname !== '/profile') {
       loadState()
 
-      Purchases.logIn(user.id).then((data) => {
-        if (data.customerInfo.activeSubscriptions.length === 0 && showPaywall) {
-          setTimeout(() => {
-            router.push('/paywall')
-          }, 3000)
-        }
-      })
-      Purchases.setAttributes({
-        email: user!.email,
-        displayName: user?.full_name,
-      })
+      if (REVENUECAT_ENABLED) {
+        Purchases.logIn(user.id).then((data) => {
+          if (data.customerInfo.activeSubscriptions.length === 0 && showPaywall) {
+            setTimeout(() => {
+              router.push('/paywall')
+            }, 3000)
+          }
+        })
+        Purchases.setAttributes({
+          email: user!.email,
+          displayName: user?.full_name,
+        })
+      }
     }
   }, [])
 
