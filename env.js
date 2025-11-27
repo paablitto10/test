@@ -8,8 +8,8 @@ const pkg = require('./package.json')
 const APP_ENV = process.env.APP_ENV ?? 'development'
 
 // Base identity values (adjust for your own app)
-const BASE_BUNDLE_ID = 'com.nativelaunch.app' // iOS bundle id
-const BASE_PACKAGE = 'com.nativelaunch.app' // Android package name
+const BASE_BUNDLE_ID = 'com.pablo.PadelScore' // iOS bundle id
+const BASE_PACKAGE = 'com.pablo.PadelScore' // Android package name
 const APP_NAME = 'NativeLaunch'
 const SCHEME = 'nativelaunch'
 const SLUG = 'native-launch'
